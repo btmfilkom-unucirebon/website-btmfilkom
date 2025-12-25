@@ -2,13 +2,14 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="output.css" rel="stylesheet" />
   </head>
   <body>
     <!-- NAVBAR -->
     <nav
-      class="bg-nav fixed top-0 left-0 w-full z-[1000] h-20 md:h-24 shadow-lg transition-all duration-300"
+      class="bg-nav fixed top-0 left-0 w-full z-50 h-20 md:h-24 shadow-lg transition-all duration-300"
     >
       <div
         class="container flex justify-between items-center px-4 py-2 md:px-8 md:py-4 lg:px-12 lg:py-4 text-white"
@@ -154,7 +155,7 @@
           >
             <a
               href="#tentang"
-              class="btn-scroll bg-white text-nav px-8 py-3 rounded-full font-bold shadow-lg ls"
+              class="nav-link btn-scroll bg-white text-nav px-8 py-3 rounded-full font-bold shadow-lg ls"
             >
               Scroll Down
             </a>
@@ -170,7 +171,7 @@
           ></div>
           <div class="absolute inset-0 bg-nav rounded-2xl rotate-3"></div>
           <img
-            src="image/img-beranda.webp"
+            src="image/img-home.webp"
             alt="Forever"
             id="img-hero"
             class="img-modern relative rounded-2xl shadow-2xl object-cover min-h-48 w-full md:h-96 grayscale transition duration-500 md:hover:grayscale-0 md:hover:scale-105 md:hover:rotate-1 md:hover:shadow-3xl md:transition md:duration-500 will-change-transform ease-in-out"
@@ -182,30 +183,39 @@
 
     <!-- BERANDA SUB SECTION -->
     <section id="tentang" class="py-20 bg-gray-50 overflow-hidden">
-      <div class="container mx-auto px-8 md:px-12">
-        <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+      <div class="container px-8 md:px-12 md:mx-auto">
+        <div
+          class="grid md:grid-cols-2 gap-12 items-center mb-24 justify-center"
+        >
           <div
-            class="reveal opacity-0 -translate-x-10 transition-all duration-700 ease-out"
+            class="reveal opacity-0 -translate-x-10 transition-all duration-700 ease-out text-center md:text-left -mt-10"
           >
             <span
               class="text-acsent font-semibold tracking-widest uppercase text-sm"
-              >Profil Kami</span
+              >Who We Are</span
             >
-            <h2 class="text-3xl md:text-4xl font-extrabold text-nav mt-2 mb-6">
-              Mengenal Lebih Dekat BTM FILKOM
+            <h2 class="text-2xl font-bold text-nav mt-2">
+              Mengenal Lebih Dekat
             </h2>
+            <h1
+              class="text-4xl md:text-6xl font-extrabold text-nav mb-6 md:-ml-1"
+            >
+              BTM FILKOM
+            </h1>
             <p
               class="text-gray-600 leading-relaxed md:text-lg text-justify mb-4"
             >
-              Badan Terarah Mahasiswa (BTM) FILKOM UNU Cirebon adalah organisasi
-              kemahasiswaan tingkat fakultas yang berperan sebagai katalisator
-              pengembangan potensi akademik dan non-akademik mahasiswa di bidang
-              teknologi informasi.
+              Badan Tanfidziyah Mahasiswa Fakultas Ilmu Komputer Universitas
+              Nahdlatul Ulama Cirebon adalah wadah inklusif yang berfungsi
+              sebagai katalisator potensi akademik dan organisasi mahasiswa di
+              bidang teknologi.
             </p>
-            <p class="text-gray-600 leading-relaxed md:text-lg text-justify">
-              Kami berkomitmen untuk membangun ekosistem yang kolaboratif,
-              inovatif, dan berlandaskan nilai-nilai keislaman serta kebangsaan
-              guna mencetak lulusan yang siap bersaing di era digital.
+            <p
+              class="text-gray-600 leading-relaxed md:text-lg text-justify mb-6"
+            >
+              Kami berkomitmen membangun ekosistem kolaboratif yang progresif,
+              transparan, dan berintegritas guna menciptakan sinergi nyata
+              antara prestasi perkuliahan dengan kontribusi organisasi.
             </p>
           </div>
           <div
@@ -215,96 +225,266 @@
               class="absolute -inset-4 bg-acsent/20 rounded-2xl -rotate-2"
             ></div>
             <img
-              src="image/tentang-kami.webp"
+              src="image/img-subHome.webp"
               alt="Kegiatan BTM"
               class="relative rounded-2xl shadow-xl w-full h-80 object-cover"
             />
           </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 mb-24">
+        <!-- VISI & MISI -->
+        <div class="grid lg:grid-cols-2 gap-6 items-stretch">
           <div
-            class="reveal opacity-0 scale-95 transition-all duration-700 bg-nav p-8 md:p-10 rounded-3xl text-white shadow-xl"
+            class="reveal group opacity-0 scale-95 transition-all duration-700 bg-nav p-8 rounded-4xl text-white shadow-xl border border-white/10 flex flex-col justify-between"
           >
-            <h3 class="text-2xl font-bold mb-6 flex items-center">
-              <span class="w-10 h-1 bg-acsent mr-3"></span> Visi
-            </h3>
-            <p class="italic text-lg leading-relaxed">
-              "Menjadikan BTM FILKOM sebagai pusat keunggulan inovasi teknologi
-              dan kepemimpinan mahasiswa yang religius, unggul, dan berdaya
-              saing global pada tahun 2030."
-            </p>
+            <div class="relative z-10">
+              <div class="flex items-center gap-4 mb-6">
+                <div
+                  class="shrink-0 w-12 h-12 bg-acsent/20 rounded-2xl flex items-center justify-center group-hover:rotate-6 transition-transform duration-500"
+                >
+                  <svg
+                    class="w-6 h-6 text-acsent"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </div>
+                <h3
+                  class="text-xl font-bold text-acsent tracking-wide uppercase"
+                >
+                  Visi
+                </h3>
+              </div>
+
+              <p
+                class="italic text-base md:text-lg leading-relaxed text-gray-200 text-justify"
+              >
+                Membawa organisasi BTM Filkom yang lebih
+                <span class="text-white font-bold"
+                  >progresif, transparan, dan berintegritas</span
+                >
+                , dengan tetap menjaga
+                <span class="text-acsent font-semibold text-justify"
+                  >keseimbangan antara akademik dan organisasi</span
+                >
+                , serta memberikan kontribusi nyata bagi fakultas.
+              </p>
+            </div>
+
+            <div class="mt-12 pt-6 border-t border-white/10">
+              <span
+                class="text-[10px] uppercase tracking-[0.2em] text-gray-500 block mb-2 font-semibold text-justify"
+                >Core Values</span
+              >
+              <div
+                class="flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-acsent"
+              >
+                <span>Integrity</span>
+                <span class="text-gray-600">•</span>
+                <span>Balance</span>
+                <span class="text-gray-600">•</span>
+                <span>Progresive</span>
+              </div>
+            </div>
           </div>
+
           <div
-            class="reveal opacity-0 scale-95 transition-all duration-700 delay-200 bg-white p-8 md:p-10 rounded-3xl border border-gray-100 shadow-xl"
+            class="reveal group opacity-0 scale-95 transition-all duration-700 delay-200 bg-white p-6 md:p-8 rounded-4xl border border-gray-100 shadow-xl"
           >
-            <h3 class="text-2xl font-bold text-nav mb-6 flex items-center">
-              <span class="w-10 h-1 bg-acsent mr-3"></span> Misi
-            </h3>
-            <ul class="space-y-4 text-gray-600">
-              <li class="flex items-start">
-                <span class="text-acsent mr-2">✔</span> Mengembangkan kompetensi
-                IT mahasiswa melalui program pelatihan berkelanjutan.
-              </li>
-              <li class="flex items-start">
-                <span class="text-acsent mr-2">✔</span> Mewadahi kolaborasi
-                riset dan proyek inovasi antardepartemen.
-              </li>
-              <li class="flex items-start">
-                <span class="text-acsent mr-2">✔</span> Memperkuat jejaring
-                dengan industri dan komunitas teknologi eksternal.
-              </li>
-            </ul>
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="flex items-center gap-4 mb-6">
+                <div
+                  class="w-14 h-14 bg-nav/5 rounded-2xl flex items-center justify-center group-hover:-rotate-6 transition-transform duration-500"
+                >
+                  <svg
+                    class="w-7 h-7 text-nav"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"
+                    />
+                    <path d="M9 12H4s.55-3.03 2-5c1.62-2.2 5-3 5-3" />
+                    <path d="M12 15v5s3.03-.55 5-2c2.2-1.62 3-5 3-5" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-nav tracking-wide uppercase">
+                  Misi Strategis
+                </h3>
+              </div>
+
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <span
+                    class="shrink-0 w-7 h-7 bg-acsent/10 text-acsent rounded-lg flex items-center justify-center text-sm font-bold mt-0.5"
+                    >1</span
+                  >
+                  <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                    Meningkatkan transparansi keputusan dan sistem evaluasi
+                    berkala organisasi.
+                  </p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span
+                    class="shrink-0 w-7 h-7 bg-acsent/10 text-acsent rounded-lg flex items-center justify-center text-sm font-bold mt-0.5"
+                    >2</span
+                  >
+                  <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                    Membangun organisasi inklusif di mana setiap anggota dapat
+                    berkembang.
+                  </p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span
+                    class="shrink-0 w-7 h-7 bg-acsent/10 text-acsent rounded-lg flex items-center justify-center text-sm font-bold mt-0.5"
+                    >3</span
+                  >
+                  <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                    Menyediakan program mentoring untuk keseimbangan akademik
+                    dan organisasi.
+                  </p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span
+                    class="shrink-0 w-7 h-7 bg-acsent/10 text-acsent rounded-lg flex items-center justify-center text-sm font-bold mt-0.5"
+                    >4</span
+                  >
+                  <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                    Menjalin hubungan dan kolaborasi strategis melalui program
+                    kerja nyata.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <!-- END VISI & MISI -->
 
-        <div
-          class="reveal opacity-0 translate-y-10 transition-all duration-1000 bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100"
+        <!-- FILOSOFI & MAKNALOGO -->
+        <section
+          class="reveal opacity-0 translate-y-10 transition-all duration-1000 bg-white rounded-4xl p-8 md:p-12 shadow-sm border border-gray-100"
         >
-          <div class="text-center max-w-2xl mx-auto mb-12">
-            <h2 class="text-3xl font-bold text-nav">Filosofi & Makna Logo</h2>
+          <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold text-nav">Filosofi Logo Kabinet</h2>
+            <p
+              class="text-acsent font-medium mt-2 tracking-widest uppercase text-sm"
+            >
+              Nawasena Pradipta
+            </p>
             <div class="w-20 h-1 bg-acsent mx-auto mt-4"></div>
           </div>
 
-          <div class="grid md:grid-cols-3 gap-8 text-center">
-            <div class="p-6">
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div
+              class="group p-6 rounded-3xl hover:bg-gray-50 transition-all duration-300 text-center"
+            >
               <div
-                class="w-16 h-16 bg-nav/10 rounded-full flex items-center justify-center mx-auto mb-4 text-nav font-bold text-2xl"
+                class="w-20 h-20 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform"
               >
-                01
+                <svg
+                  class="w-10 h-10 text-[#ED8921]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C12 2 12 7 9 9C6 11 6 14 6 16C6 19.31 8.69 22 12 22C15.31 22 18 19.31 18 16C18 12 15 10 12 2Z"
+                  />
+                </svg>
               </div>
-              <h4 class="font-bold text-lg mb-2">Warna Biru Utama</h4>
-              <p class="text-gray-500 text-sm">
-                Melambangkan kedalaman ilmu pengetahuan, profesionalisme, dan
-                kepercayaan dalam teknologi.
+              <h4 class="font-bold text-lg mb-3 text-nav">Cahaya Api</h4>
+              <p class="text-gray-500 text-sm leading-relaxed">
+                Mewakili energi, motivasi membara, dan komitmen penuh gairah
+                dalam mencapai tujuan.
               </p>
             </div>
-            <div class="p-6">
+
+            <div
+              class="group p-6 rounded-3xl hover:bg-gray-50 transition-all duration-300 text-center"
+            >
               <div
-                class="w-16 h-16 bg-nav/10 rounded-full flex items-center justify-center mx-auto mb-4 text-nav font-bold text-2xl"
+                class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-transform"
               >
-                02
+                <svg
+                  class="w-10 h-10 text-nav"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2v20M8 6l8 0M9 10l6 0M12 2l-3 4m3-4l3 4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
               </div>
-              <h4 class="font-bold text-lg mb-2">Bentuk Geometris</h4>
-              <p class="text-gray-500 text-sm">
-                Struktur yang presisi mencerminkan logika pemrograman dan
-                ketepatan dalam berpikir sistematis.
+              <h4 class="font-bold text-lg mb-3 text-nav">Batang Obor</h4>
+              <p class="text-gray-500 text-sm leading-relaxed">
+                Melambangkan pengayom dan panduan yang memimpin serta memberikan
+                pencerahan.
               </p>
             </div>
-            <div class="p-6">
+
+            <div
+              class="group p-6 rounded-3xl hover:bg-gray-50 transition-all duration-300 text-center"
+            >
               <div
-                class="w-16 h-16 bg-nav/10 rounded-full flex items-center justify-center mx-auto mb-4 text-nav font-bold text-2xl"
+                class="w-20 h-20 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
               >
-                03
+                <svg
+                  class="w-10 h-10 text-acsent"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 3a9 9 0 0 1 0 18" opacity="0.3" />
+                </svg>
               </div>
-              <h4 class="font-bold text-lg mb-2">Aksen Cahaya</h4>
-              <p class="text-gray-500 text-sm">
-                Simbol kreativitas yang terus menyala dan inovasi yang tidak
-                pernah berhenti berkembang.
+              <h4 class="font-bold text-lg mb-3 text-nav">Lingkaran</h4>
+              <p class="text-gray-500 text-sm leading-relaxed">
+                Melambangkan persatuan tim yang utuh dan komitmen jangka panjang
+                yang tidak terputus.
+              </p>
+            </div>
+
+            <div
+              class="group p-6 rounded-3xl hover:bg-gray-50 transition-all duration-300 text-center"
+            >
+              <div
+                class="w-20 h-20 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
+              >
+                <div class="flex -space-x-3">
+                  <div
+                    class="w-8 h-8 rounded-full bg-[#CC3625] shadow-sm border-2 border-white"
+                  ></div>
+                  <div
+                    class="w-8 h-8 rounded-full bg-[#ED8921] shadow-sm border-2 border-white"
+                  ></div>
+                </div>
+              </div>
+              <h4 class="font-bold text-lg mb-3 text-nav">Gradasi Warna</h4>
+              <p class="text-gray-500 text-sm leading-relaxed">
+                Melambangkan progresi, peningkatan, dan pencapaian yang lebih
+                tinggi.
               </p>
             </div>
           </div>
-        </div>
+        </section>
+        <!-- END FILOSOFI & MAKNALOGO -->
       </div>
     </section>
     <!-- END BERANDA SUB SECTION -->

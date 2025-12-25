@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
-/* --- Konfigurasi Variabel Warna --- */
+/* --- 1. KONFIGURASI TEMA & VARIABEL --- */
 @theme {
   --color-nav: #252c37;
   --color-acsent: #00b3e2;
   --color-bg-main: #f8fafc;
 }
 
-/* --- Global Styling & Dynamic Background --- */
+/* --- 2. GLOBAL STYLING & DYNAMIC BACKGROUND --- */
 html,
 body {
   margin: 0;
@@ -16,31 +16,12 @@ body {
   min-height: 100%;
   scroll-behavior: smooth;
   background-color: var(--color-bg-main);
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
 
-  /* Pastikan warna nav terbaca dan solid */
-  .bg-nav {
-    background-color: #252c37 !important; /* Gunakan warna navy kamu */
-  }
-
-  /* Pastikan nav berada di lapisan terdepan */
-  nav {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  /* Berikan ruang agar konten Beranda tidak 'nyelip' di bawah navbar */
-  #beranda {
-    margin-top: 5rem; /* Tinggi navbar (h-20) */
-  }
-
-  @media (min-width: 768px) {
-    #beranda {
-      margin-top: 6rem; /* Tinggi navbar md (h-24) */
-    }
-  }
-
-  /* Efek semburat warna di pojok (Mesh Gradient) */
+  /* Efek Mesh Gradient di Background */
   background-image: radial-gradient(
       circle at 0% 0%,
       rgba(0, 179, 226, 0.1) 0%,
@@ -51,7 +32,6 @@ body {
       rgba(37, 44, 55, 0.05) 0%,
       transparent 40%
     );
-
   background-size: 150% 150%;
   background-attachment: fixed;
   animation: meshMove 20s ease infinite alternate;
@@ -66,7 +46,40 @@ body {
   }
 }
 
-/* --- Meteor/Data Rain Effect --- */
+/* --- 3. NAVBAR & NAVIGATION --- */
+nav {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.bg-nav {
+  background-color: #252c37 !important;
+}
+
+/* State Link Aktif */
+nav ul li a.active-link {
+  color: var(--color-acsent) !important;
+  opacity: 1 !important;
+}
+
+nav ul li a.active-link span {
+  width: 100% !important;
+  background-color: var(--color-acsent) !important;
+}
+
+/* --- 4. SECTION SPACING --- */
+#beranda {
+  margin-top: 5rem; /* Menghindari konten tertutup navbar (h-20) */
+}
+
+@media (min-width: 768px) {
+  #beranda {
+    margin-top: 6rem; /* Navbar md (h-24) */
+  }
+}
+
+/* --- 5. ANIMASI METEOR (DATA RAIN) --- */
 .meteor-container {
   position: absolute;
   top: 0;
@@ -86,7 +99,7 @@ body {
   opacity: 0;
 }
 
-/* Pengaturan jalur meteor kanan */
+/* Jalur Meteor Kanan */
 .m-right:nth-child(1) {
   left: 10%;
   animation: meteorKanan 6s infinite;
@@ -112,7 +125,7 @@ body {
   animation: meteorKanan 10s infinite 5s;
 }
 
-/* Pengaturan jalur meteor kiri (cross-section) */
+/* Jalur Meteor Kiri */
 .m-left:nth-child(7) {
   right: 5%;
   animation: meteorKiri 7s infinite 1s;
@@ -174,7 +187,7 @@ body {
   }
 }
 
-/* --- Button & Interaction --- */
+/* --- 6. BUTTON & INTERAKSI --- */
 .btn-scroll {
   display: inline-block;
   transition: all 0.3s ease;
@@ -187,7 +200,7 @@ body {
   background-color: var(--color-acsent) !important;
   color: white !important;
   box-shadow: 0 10px 25px rgba(0, 179, 226, 0.4);
-  animation: none; /* stop detak pas di-hover */
+  animation: none;
 }
 
 @keyframes pulse-custom {
@@ -200,16 +213,4 @@ body {
   100% {
     box-shadow: 0 0 0 0 rgba(0, 179, 226, 0);
   }
-}
-
-/* --- NavLink Active State --- */
-/* saat link aktif di navigasi */
-nav ul li a.active-link {
-  color: var(--color-acsent);
-  opacity: 1 !important;
-}
-/* saat link aktif, underline jadi full */
-nav ul li a.active-link span {
-  width: 100% !important;
-  background: var(--color-acsent) !important;
 }
