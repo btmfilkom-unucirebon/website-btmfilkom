@@ -1,0 +1,292 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* --- 1. KONFIGURASI TEMA & VARIABEL --- */
+@theme {
+  --color-nav: #252c37;
+  --color-acsent: #00b3e2;
+  --color-bg-main: #f8fafc;
+}
+
+/* --- 2. GLOBAL STYLING & DYNAMIC BACKGROUND --- */
+html,
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100%;
+  scroll-behavior: smooth;
+  background-color: var(--color-bg-main);
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  scrollbar-width: none;
+  text-rendering: optimizeLegibility;
+
+  /* Efek Mesh Gradient di Background */
+  background-image: radial-gradient(
+      circle at 0% 0%,
+      rgba(0, 179, 226, 0.1) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(37, 44, 55, 0.05) 0%,
+      transparent 40%
+    );
+  background-size: 150% 150%;
+  background-attachment: fixed;
+  animation: meshMove 20s ease infinite alternate;
+}
+
+@keyframes meshMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 15% 15%;
+  }
+}
+
+/* --- 3. NAVBAR & NAVIGATION --- */
+nav {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.bg-nav {
+  background-color: #252c37 !important;
+}
+
+/* State Link Aktif */
+nav ul li a.active-link {
+  color: var(--color-acsent) !important;
+  opacity: 1 !important;
+}
+
+nav ul li a.active-link span {
+  width: 100% !important;
+  background-color: var(--color-acsent) !important;
+}
+
+/* --- 4. SECTION SPACING --- */
+#beranda {
+  margin-top: 5rem; /* Menghindari konten tertutup navbar (h-20) */
+}
+
+@media (min-width: 768px) {
+  #beranda {
+    margin-top: 6rem; /* Navbar md (h-24) */
+  }
+}
+
+/* --- 5. ANIMASI METEOR (DATA RAIN) --- */
+.meteor-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.meteor {
+  position: absolute;
+  width: 1.5px;
+  height: 120px;
+  background: linear-gradient(to bottom, var(--color-acsent), var(--color-nav));
+  opacity: 0;
+}
+
+/* Jalur Meteor Kanan */
+.m-right:nth-child(1) {
+  left: 10%;
+  animation: meteorKanan 6s infinite;
+}
+.m-right:nth-child(2) {
+  left: 30%;
+  animation: meteorKanan 8s infinite 2s;
+}
+.m-right:nth-child(3) {
+  left: 50%;
+  animation: meteorKanan 7s infinite 4s;
+}
+.m-right:nth-child(4) {
+  left: 70%;
+  animation: meteorKanan 9s infinite 1s;
+}
+.m-right:nth-child(5) {
+  left: 90%;
+  animation: meteorKanan 6s infinite 3s;
+}
+.m-right:nth-child(6) {
+  left: 20%;
+  animation: meteorKanan 10s infinite 5s;
+}
+
+/* Jalur Meteor Kiri */
+.m-left:nth-child(7) {
+  right: 5%;
+  animation: meteorKiri 7s infinite 1s;
+}
+.m-left:nth-child(8) {
+  right: 25%;
+  animation: meteorKiri 9s infinite 3s;
+}
+.m-left:nth-child(9) {
+  right: 45%;
+  animation: meteorKiri 6s infinite 5s;
+}
+.m-left:nth-child(10) {
+  right: 65%;
+  animation: meteorKiri 10s infinite 2s;
+}
+.m-left:nth-child(11) {
+  right: 85%;
+  animation: meteorKiri 8s infinite 4s;
+}
+.m-left:nth-child(12) {
+  right: 15%;
+  animation: meteorKiri 7s infinite 6s;
+}
+
+@keyframes meteorKanan {
+  0% {
+    transform: rotate(45deg) translateY(-200px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.25;
+  }
+  40% {
+    transform: rotate(45deg) translateY(120vh);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(45deg) translateY(120vh);
+    opacity: 0;
+  }
+}
+
+@keyframes meteorKiri {
+  0% {
+    transform: rotate(-45deg) translateY(-200px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.25;
+  }
+  40% {
+    transform: rotate(-45deg) translateY(120vh);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(-45deg) translateY(120vh);
+    opacity: 0;
+  }
+}
+
+/* --- 6. BUTTON & INTERAKSI --- */
+.btn-scroll {
+  display: inline-block;
+  transition: all 0.3s ease;
+  animation: pulse-custom 2s infinite;
+  border: 1px solid rgba(0, 179, 226, 0.2);
+}
+
+.btn-scroll:hover {
+  transform: translateY(-5px);
+  background-color: var(--color-acsent) !important;
+  color: white !important;
+  box-shadow: 0 10px 25px rgba(0, 179, 226, 0.4);
+  animation: none;
+}
+
+@keyframes pulse-custom {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 179, 226, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(0, 179, 226, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 179, 226, 0);
+  }
+}
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.animate-slide {
+  animation: slide 3s infinite ease-in-out;
+}
+
+/* Android Click grayscale */
+.active-mobile img {
+  filter: grayscale(0) !important;
+  transform: scale(1.05) rotate(1deg) !important;
+}
+
+/* Animasi reveal saat scroll */
+.reveal-on-scroll {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.reveal-up {
+  transform: translateY(40px);
+}
+
+.reveal-left {
+  transform: translateX(-50px);
+}
+
+.reveal-right {
+  transform: translateX(50px);
+}
+
+.reveal-active {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
+/* Animasi logo mengambang di mobile */
+@keyframes floatingLogo {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@media (max-width: 768px) {
+  #tentang .group svg,
+  #tentang .group .flex.-space-x-3 {
+    animation: floatingLogo 3s ease-in-out infinite;
+  }
+}
+
+/* hover untuk desktop */
+@media (min-width: 769px) {
+  .group:hover svg {
+    transform: scale(1.1) rotate(3deg);
+    transition: transform 0.3s ease;
+  }
+}
