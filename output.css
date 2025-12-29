@@ -2,11 +2,12 @@
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
-  :root, :host {
+  :root,
+  :host {
     --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-      "Courier New", monospace;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
     --color-orange-50: oklch(98% 0.016 73.684);
     --color-cyan-400: oklch(78.9% 0.154 211.53);
     --color-blue-50: oklch(97% 0.014 254.604);
@@ -75,17 +76,31 @@
   }
 }
 @layer base {
-  *, ::after, ::before, ::backdrop, ::file-selector-button {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: 0 solid;
   }
-  html, :host {
+  html,
+  :host {
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
-    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-family: var(
+      --default-font-family,
+      ui-sans-serif,
+      system-ui,
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji"
+    );
     font-feature-settings: var(--default-font-feature-settings, normal);
     font-variation-settings: var(--default-font-variation-settings, normal);
     -webkit-tap-highlight-color: transparent;
@@ -99,7 +114,12 @@
     -webkit-text-decoration: underline dotted;
     text-decoration: underline dotted;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-size: inherit;
     font-weight: inherit;
   }
@@ -108,19 +128,37 @@
     -webkit-text-decoration: inherit;
     text-decoration: inherit;
   }
-  b, strong {
+  b,
+  strong {
     font-weight: bolder;
   }
-  code, kbd, samp, pre {
-    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(
+      --default-mono-font-family,
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Liberation Mono",
+      "Courier New",
+      monospace
+    );
     font-feature-settings: var(--default-mono-font-feature-settings, normal);
-    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-variation-settings: var(
+      --default-mono-font-variation-settings,
+      normal
+    );
     font-size: 1em;
   }
   small {
     font-size: 80%;
   }
-  sub, sup {
+  sub,
+  sup {
     font-size: 75%;
     line-height: 0;
     position: relative;
@@ -146,18 +184,33 @@
   summary {
     display: list-item;
   }
-  ol, ul, menu {
+  ol,
+  ul,
+  menu {
     list-style: none;
   }
-  img, svg, video, canvas, audio, iframe, embed, object {
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
     display: block;
     vertical-align: middle;
   }
-  img, video {
+  img,
+  video {
     max-width: 100%;
     height: auto;
   }
-  button, input, select, optgroup, textarea, ::file-selector-button {
+  button,
+  input,
+  select,
+  optgroup,
+  textarea,
+  ::file-selector-button {
     font: inherit;
     font-feature-settings: inherit;
     font-variation-settings: inherit;
@@ -179,7 +232,8 @@
   ::placeholder {
     opacity: 1;
   }
-  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+  @supports (not (-webkit-appearance: -apple-pay-button)) or
+    (contain-intrinsic-size: 1px) {
     ::placeholder {
       color: currentcolor;
       @supports (color: color-mix(in lab, red, red)) {
@@ -203,7 +257,15 @@
   ::-webkit-datetime-edit-fields-wrapper {
     padding: 0;
   }
-  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+  ::-webkit-datetime-edit,
+  ::-webkit-datetime-edit-year-field,
+  ::-webkit-datetime-edit-month-field,
+  ::-webkit-datetime-edit-day-field,
+  ::-webkit-datetime-edit-hour-field,
+  ::-webkit-datetime-edit-minute-field,
+  ::-webkit-datetime-edit-second-field,
+  ::-webkit-datetime-edit-millisecond-field,
+  ::-webkit-datetime-edit-meridiem-field {
     padding-block: 0;
   }
   ::-webkit-calendar-picker-indicator {
@@ -212,10 +274,13 @@
   :-moz-ui-invalid {
     box-shadow: none;
   }
-  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {
+  button,
+  input:where([type="button"], [type="reset"], [type="submit"]),
+  ::file-selector-button {
     appearance: button;
   }
-  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
     height: auto;
   }
   [hidden]:where(:not([hidden="until-found"])) {
@@ -252,7 +317,8 @@
       :where(li > .menu-dropdown:not(.menu-dropdown-show)) {
         display: none;
       }
-      :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)), :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+      :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)),
+      :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
         display: grid;
         grid-auto-flow: column;
         align-content: flex-start;
@@ -280,7 +346,8 @@
           display: none;
         }
       }
-      :where(li > details > summary), :where(li > .menu-dropdown-toggle) {
+      :where(li > details > summary),
+      :where(li > .menu-dropdown-toggle) {
         &:after {
           justify-self: flex-end;
           display: block;
@@ -312,16 +379,25 @@
       details[open]::details-content {
         block-size: auto;
       }
-      :where(li > details[open] > summary):after, :where(li > .menu-dropdown-toggle.menu-dropdown-show):after {
+      :where(li > details[open] > summary):after,
+      :where(li > .menu-dropdown-toggle.menu-dropdown-show):after {
         rotate: 45deg;
         translate: 0 1px;
       }
-      :where( li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title), li:not(.menu-title, .disabled) > details > summary:not(.menu-title) ):not(.menu-active, :active, .btn) {
-        &.menu-focus, &:focus-visible {
+      :where(
+          li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title),
+          li:not(.menu-title, .disabled) > details > summary:not(.menu-title)
+        ):not(.menu-active, :active, .btn) {
+        &.menu-focus,
+        &:focus-visible {
           cursor: pointer;
           background-color: var(--color-base-content);
           @supports (color: color-mix(in lab, red, red)) {
-            background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+            background-color: color-mix(
+              in oklab,
+              var(--color-base-content) 10%,
+              transparent
+            );
           }
           color: var(--color-base-content);
           --tw-outline-style: none;
@@ -332,11 +408,25 @@
           }
         }
       }
-      :where( li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title):not(.menu-active, :active, .btn):hover, li:not(.menu-title, .disabled) > details > summary:not(.menu-title):not(.menu-active, :active, .btn):hover ) {
+      :where(
+          li:not(.menu-title, .disabled)
+            > *:not(ul, details, .menu-title):not(
+              .menu-active,
+              :active,
+              .btn
+            ):hover,
+          li:not(.menu-title, .disabled)
+            > details
+            > summary:not(.menu-title):not(.menu-active, :active, .btn):hover
+        ) {
         cursor: pointer;
         background-color: var(--color-base-content);
         @supports (color: color-mix(in lab, red, red)) {
-          background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+          background-color: color-mix(
+            in oklab,
+            var(--color-base-content) 10%,
+            transparent
+          );
         }
         --tw-outline-style: none;
         outline-style: none;
@@ -344,7 +434,8 @@
           outline: 2px solid transparent;
           outline-offset: 2px;
         }
-        box-shadow: 0 1px oklch(0% 0 0 / 0.01) inset, 0 -1px oklch(100% 0 0 / 0.01) inset;
+        box-shadow: 0 1px oklch(0% 0 0 / 0.01) inset,
+          0 -1px oklch(100% 0 0 / 0.01) inset;
       }
       :where(li:empty) {
         background-color: var(--color-base-content);
@@ -362,7 +453,9 @@
         .badge {
           justify-self: flex-end;
         }
-        & > *:not(ul, .menu-title, details, .btn):active, & > *:not(ul, .menu-title, details, .btn).menu-active, & > details > summary:active {
+        & > *:not(ul, .menu-title, details, .btn):active,
+        & > *:not(ul, .menu-title, details, .btn).menu-active,
+        & > details > summary:active {
           --tw-outline-style: none;
           outline-style: none;
           @media (forced-colors: active) {
@@ -381,7 +474,11 @@
           pointer-events: none;
           color: var(--color-base-content);
           @supports (color: color-mix(in lab, red, red)) {
-            color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+            color: color-mix(
+              in oklab,
+              var(--color-base-content) 20%,
+              transparent
+            );
           }
         }
       }
@@ -441,31 +538,43 @@
       border-color: var(--btn-border);
       text-shadow: 0 0.5px oklch(100% 0 0 / calc(var(--depth) * 0.15));
       touch-action: manipulation;
-      box-shadow: 0 0.5px 0 0.5px oklch(100% 0 0 / calc(var(--depth) * 6%)) inset, var(--btn-shadow);
+      box-shadow: 0 0.5px 0 0.5px oklch(100% 0 0 / calc(var(--depth) * 6%))
+          inset,
+        var(--btn-shadow);
       --size: calc(var(--size-field, 0.25rem) * 10);
       --btn-bg: var(--btn-color, var(--color-base-200));
       --btn-fg: var(--color-base-content);
       --btn-p: 1rem;
       --btn-border: var(--btn-bg);
       @supports (color: color-mix(in lab, red, red)) {
-        --btn-border: color-mix(in oklab, var(--btn-bg), #000 calc(var(--depth) * 5%));
+        --btn-border: color-mix(
+          in oklab,
+          var(--btn-bg),
+          #000 calc(var(--depth) * 5%)
+        );
       }
-      --btn-shadow: 0 3px 2px -2px var(--btn-bg),
-      0 4px 3px -2px var(--btn-bg);
+      --btn-shadow: 0 3px 2px -2px var(--btn-bg), 0 4px 3px -2px var(--btn-bg);
       @supports (color: color-mix(in lab, red, red)) {
-        --btn-shadow: 0 3px 2px -2px color-mix(in oklab, var(--btn-bg) calc(var(--depth) * 30%), #0000),
-      0 4px 3px -2px color-mix(in oklab, var(--btn-bg) calc(var(--depth) * 30%), #0000);
+        --btn-shadow: 0 3px 2px -2px color-mix(in oklab, var(--btn-bg)
+                calc(var(--depth) * 30%), #0000),
+          0 4px 3px -2px color-mix(in oklab, var(--btn-bg)
+                calc(var(--depth) * 30%), #0000);
       }
       --btn-noise: var(--fx-noise);
       @media (hover: hover) {
         &:hover {
           --btn-bg: var(--btn-color, var(--color-base-200));
           @supports (color: color-mix(in lab, red, red)) {
-            --btn-bg: color-mix(in oklab, var(--btn-color, var(--color-base-200)), #000 7%);
+            --btn-bg: color-mix(
+              in oklab,
+              var(--btn-color, var(--color-base-200)),
+              #000 7%
+            );
           }
         }
       }
-      &:focus-visible, &:has(:focus-visible) {
+      &:focus-visible,
+      &:has(:focus-visible) {
         outline-width: 2px;
         outline-style: solid;
         isolation: isolate;
@@ -474,11 +583,19 @@
         translate: 0 0.5px;
         --btn-bg: var(--btn-color, var(--color-base-200));
         @supports (color: color-mix(in lab, red, red)) {
-          --btn-bg: color-mix(in oklab, var(--btn-color, var(--color-base-200)), #000 5%);
+          --btn-bg: color-mix(
+            in oklab,
+            var(--btn-color, var(--color-base-200)),
+            #000 5%
+          );
         }
         --btn-border: var(--btn-color, var(--color-base-200));
         @supports (color: color-mix(in lab, red, red)) {
-          --btn-border: color-mix(in oklab, var(--btn-color, var(--color-base-200)), #000 7%);
+          --btn-border: color-mix(
+            in oklab,
+            var(--btn-color, var(--color-base-200)),
+            #000 7%
+          );
         }
         --btn-shadow: 0 0 0 0 oklch(0% 0 0/0), 0 0 0 0 oklch(0% 0 0/0);
       }
@@ -500,7 +617,11 @@
         &:not(.btn-link, .btn-ghost) {
           background-color: var(--color-base-content);
           @supports (color: color-mix(in lab, red, red)) {
-            background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+            background-color: color-mix(
+              in oklab,
+              var(--color-base-content) 10%,
+              transparent
+            );
           }
           box-shadow: none;
         }
@@ -518,7 +639,11 @@
         &:not(.btn-link, .btn-ghost) {
           background-color: var(--color-base-content);
           @supports (color: color-mix(in lab, red, red)) {
-            background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+            background-color: color-mix(
+              in oklab,
+              var(--color-base-content) 10%,
+              transparent
+            );
           }
           box-shadow: none;
         }
@@ -983,7 +1108,8 @@
     rotate: 3deg;
   }
   .transform {
-    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+    transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z)
+      var(--tw-skew-x) var(--tw-skew-y);
   }
   .cursor-pointer {
     cursor: pointer;
@@ -1050,22 +1176,34 @@
   .space-y-1 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 1) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)));
+      margin-block-start: calc(
+        calc(var(--spacing) * 1) * var(--tw-space-y-reverse)
+      );
+      margin-block-end: calc(
+        calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse))
+      );
     }
   }
   .space-y-4 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
+      margin-block-start: calc(
+        calc(var(--spacing) * 4) * var(--tw-space-y-reverse)
+      );
+      margin-block-end: calc(
+        calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse))
+      );
     }
   }
   .space-y-6 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+      margin-block-start: calc(
+        calc(var(--spacing) * 6) * var(--tw-space-y-reverse)
+      );
+      margin-block-end: calc(
+        calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse))
+      );
     }
   }
   .gap-x-4 {
@@ -1074,15 +1212,23 @@
   .-space-x-3 {
     :where(& > :not(:last-child)) {
       --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * -3) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * -3) * calc(1 - var(--tw-space-x-reverse)));
+      margin-inline-start: calc(
+        calc(var(--spacing) * -3) * var(--tw-space-x-reverse)
+      );
+      margin-inline-end: calc(
+        calc(var(--spacing) * -3) * calc(1 - var(--tw-space-x-reverse))
+      );
     }
   }
   .space-x-1 {
     :where(& > :not(:last-child)) {
       --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * 1) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-x-reverse)));
+      margin-inline-start: calc(
+        calc(var(--spacing) * 1) * var(--tw-space-x-reverse)
+      );
+      margin-inline-end: calc(
+        calc(var(--spacing) * 1) * calc(1 - var(--tw-space-x-reverse))
+      );
     }
   }
   .gap-y-2 {
@@ -1152,10 +1298,10 @@
     }
   }
   .bg-\[\#CC3625\] {
-    background-color: #CC3625;
+    background-color: #cc3625;
   }
   .bg-\[\#ED8921\] {
-    background-color: #ED8921;
+    background-color: #ed8921;
   }
   .bg-acsent {
     background-color: var(--color-acsent);
@@ -1163,13 +1309,21 @@
   .bg-acsent\/10 {
     background-color: color-mix(in srgb, #00b3e2 10%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-acsent) 10%, transparent);
+      background-color: color-mix(
+        in oklab,
+        var(--color-acsent) 10%,
+        transparent
+      );
     }
   }
   .bg-acsent\/20 {
     background-color: color-mix(in srgb, #00b3e2 20%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-acsent) 20%, transparent);
+      background-color: color-mix(
+        in oklab,
+        var(--color-acsent) 20%,
+        transparent
+      );
     }
   }
   .bg-base-100 {
@@ -1178,7 +1332,11 @@
   .bg-black\/60 {
     background-color: color-mix(in srgb, #000 60%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-black) 60%, transparent);
+      background-color: color-mix(
+        in oklab,
+        var(--color-black) 60%,
+        transparent
+      );
     }
   }
   .bg-blue-50 {
@@ -1232,19 +1390,36 @@
   }
   .from-transparent {
     --tw-gradient-from: transparent;
-    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+    --tw-gradient-stops: var(
+      --tw-gradient-via-stops,
+      var(--tw-gradient-position),
+      var(--tw-gradient-from) var(--tw-gradient-from-position),
+      var(--tw-gradient-to) var(--tw-gradient-to-position)
+    );
   }
   .via-acsent\/50 {
     --tw-gradient-via: color-mix(in srgb, #00b3e2 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
-      --tw-gradient-via: color-mix(in oklab, var(--color-acsent) 50%, transparent);
+      --tw-gradient-via: color-mix(
+        in oklab,
+        var(--color-acsent) 50%,
+        transparent
+      );
     }
-    --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-via-stops: var(--tw-gradient-position),
+      var(--tw-gradient-from) var(--tw-gradient-from-position),
+      var(--tw-gradient-via) var(--tw-gradient-via-position),
+      var(--tw-gradient-to) var(--tw-gradient-to-position);
     --tw-gradient-stops: var(--tw-gradient-via-stops);
   }
   .to-transparent {
     --tw-gradient-to: transparent;
-    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+    --tw-gradient-stops: var(
+      --tw-gradient-via-stops,
+      var(--tw-gradient-position),
+      var(--tw-gradient-from) var(--tw-gradient-from-position),
+      var(--tw-gradient-to) var(--tw-gradient-to-position)
+    );
   }
   .object-contain {
     object-fit: contain;
@@ -1409,10 +1584,10 @@
     letter-spacing: var(--tracking-widest);
   }
   .text-\[\#CC3625\] {
-    color: #CC3625;
+    color: #cc3625;
   }
   .text-\[\#ED8921\] {
-    color: #ED8921;
+    color: #ed8921;
   }
   .text-acsent {
     color: var(--color-acsent);
@@ -1467,27 +1642,42 @@
   }
   .shadow-2xl {
     --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+      var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-lg {
-    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+      0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+      var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-md {
-    --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+      0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+      var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-sm {
-    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+      0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+      var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-xl {
-    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+      0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+      var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .btn-ghost {
     @layer daisyui.l1 {
-      &:not(.btn-active, :hover, :active:focus, :focus-visible, input:checked:not(.filter .btn)) {
+      &:not(
+          .btn-active,
+          :hover,
+          :active:focus,
+          :focus-visible,
+          input:checked:not(.filter .btn)
+        ) {
         --btn-shadow: "";
         --btn-bg: #0000;
         --btn-border: #0000;
@@ -1498,7 +1688,12 @@
         }
       }
       @media (hover: none) {
-        &:not(.btn-active, :active, :focus-visible, input:checked:not(.filter .btn)):hover {
+        &:not(
+            .btn-active,
+            :active,
+            :focus-visible,
+            input:checked:not(.filter .btn)
+          ):hover {
           outline-color: currentcolor;
           --btn-shadow: "";
           --btn-bg: #0000;
@@ -1511,34 +1706,61 @@
   }
   .blur-3xl {
     --tw-blur: blur(var(--blur-3xl));
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+      var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
+      var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
   }
   .brightness-90 {
     --tw-brightness: brightness(90%);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+      var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
+      var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
   }
   .grayscale {
     --tw-grayscale: grayscale(100%);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+      var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
+      var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
   }
   .backdrop-blur-sm {
     --tw-backdrop-blur: blur(var(--blur-sm));
-    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    -webkit-backdrop-filter: var(--tw-backdrop-blur)
+      var(--tw-backdrop-brightness) var(--tw-backdrop-contrast)
+      var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate)
+      var(--tw-backdrop-invert) var(--tw-backdrop-opacity)
+      var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+      var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
+      var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+      var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+      var(--tw-backdrop-sepia);
   }
   .transition {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-property: color, background-color, border-color, outline-color,
+      text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via,
+      --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate,
+      filter, -webkit-backdrop-filter, backdrop-filter, display,
+      content-visibility, overlay, pointer-events;
+    transition-timing-function: var(
+      --tw-ease,
+      var(--default-transition-timing-function)
+    );
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .transition-all {
     transition-property: all;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-timing-function: var(
+      --tw-ease,
+      var(--default-transition-timing-function)
+    );
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .transition-transform {
     transition-property: transform, translate, scale, rotate;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-timing-function: var(
+      --tw-ease,
+      var(--default-transition-timing-function)
+    );
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .delay-100 {
@@ -1588,7 +1810,16 @@
   }
   .btn-outline {
     @layer daisyui.l1 {
-      &:not( .btn-active, :hover, :active:focus, :focus-visible, input:checked:not(.filter .btn), :disabled, [disabled], .btn-disabled ) {
+      &:not(
+          .btn-active,
+          :hover,
+          :active:focus,
+          :focus-visible,
+          input:checked:not(.filter .btn),
+          :disabled,
+          [disabled],
+          .btn-disabled
+        ) {
         --btn-shadow: "";
         --btn-bg: #0000;
         --btn-fg: var(--btn-color);
@@ -1596,7 +1827,12 @@
         --btn-noise: none;
       }
       @media (hover: none) {
-        &:not(.btn-active, :active, :focus-visible, input:checked:not(.filter .btn)):hover {
+        &:not(
+            .btn-active,
+            :active,
+            :focus-visible,
+            input:checked:not(.filter .btn)
+          ):hover {
           --btn-shadow: "";
           --btn-bg: #0000;
           --btn-fg: var(--btn-color);
@@ -1693,7 +1929,9 @@
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
         --tw-brightness: brightness(100%);
-        filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+          var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
+          var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
       }
     }
   }
@@ -1731,7 +1969,11 @@
       @media (hover: hover) {
         background-color: color-mix(in srgb, #000 70%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
-          background-color: color-mix(in oklab, var(--color-black) 70%, transparent);
+          background-color: color-mix(
+            in oklab,
+            var(--color-black) 70%,
+            transparent
+          );
         }
       }
     }
@@ -1923,8 +2165,12 @@
     @media (width >= 48rem) {
       :where(& > :not(:last-child)) {
         --tw-space-y-reverse: 0;
-        margin-block-start: calc(calc(var(--spacing) * 0) * var(--tw-space-y-reverse));
-        margin-block-end: calc(calc(var(--spacing) * 0) * calc(1 - var(--tw-space-y-reverse)));
+        margin-block-start: calc(
+          calc(var(--spacing) * 0) * var(--tw-space-y-reverse)
+        );
+        margin-block-end: calc(
+          calc(var(--spacing) * 0) * calc(1 - var(--tw-space-y-reverse))
+        );
       }
     }
   }
@@ -1932,8 +2178,12 @@
     @media (width >= 48rem) {
       :where(& > :not(:last-child)) {
         --tw-space-x-reverse: 0;
-        margin-inline-start: calc(calc(var(--spacing) * 6) * var(--tw-space-x-reverse));
-        margin-inline-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-x-reverse)));
+        margin-inline-start: calc(
+          calc(var(--spacing) * 6) * var(--tw-space-x-reverse)
+        );
+        margin-inline-end: calc(
+          calc(var(--spacing) * 6) * calc(1 - var(--tw-space-x-reverse))
+        );
       }
     }
   }
@@ -2064,14 +2314,25 @@
   .md\:shadow-none {
     @media (width >= 48rem) {
       --tw-shadow: 0 0 #0000;
-      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+        var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
   .md\:transition {
     @media (width >= 48rem) {
-      transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
-      transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-      transition-duration: var(--tw-duration, var(--default-transition-duration));
+      transition-property: color, background-color, border-color, outline-color,
+        text-decoration-color, fill, stroke, --tw-gradient-from,
+        --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform,
+        translate, scale, rotate, filter, -webkit-backdrop-filter,
+        backdrop-filter, display, content-visibility, overlay, pointer-events;
+      transition-timing-function: var(
+        --tw-ease,
+        var(--default-transition-timing-function)
+      );
+      transition-duration: var(
+        --tw-duration,
+        var(--default-transition-duration)
+      );
     }
   }
   .md\:duration-500 {
@@ -2106,7 +2367,9 @@
       &:hover {
         @media (hover: hover) {
           --tw-grayscale: grayscale(0%);
-          filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+          filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+            var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
+            var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
         }
       }
     }
@@ -2192,7 +2455,8 @@
     }
   }
 }
-html, body {
+html,
+body {
   font-family: "Plus Jakarta Sans", sans-serif;
   margin: 0;
   padding: 0;
@@ -2206,7 +2470,16 @@ html, body {
   -webkit-tap-highlight-color: transparent;
   scrollbar-width: none;
   text-rendering: optimizeLegibility;
-  background-image: radial-gradient( circle at 0% 0%, rgba(0, 179, 226, 0.1) 0%, transparent 40% ), radial-gradient( circle at 100% 100%, rgba(37, 44, 55, 0.05) 0%, transparent 40% );
+  background-image: radial-gradient(
+      circle at 0% 0%,
+      rgba(0, 179, 226, 0.1) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(37, 44, 55, 0.05) 0%,
+      transparent 40%
+    );
   background-size: 150% 150%;
   background-attachment: fixed;
   animation: meshMove 20s ease infinite alternate;
@@ -2414,7 +2687,8 @@ nav ul li a.active-link span {
   }
 }
 @media (max-width: 768px) {
-  #tentang .group svg, #tentang .group .flex.-space-x-3 {
+  #tentang .group svg,
+  #tentang .group .flex.-space-x-3 {
     animation: floatingLogo 3s ease-in-out infinite;
   }
 }
@@ -2425,7 +2699,9 @@ nav ul li a.active-link span {
   }
 }
 @layer base {
-  :where(:root),:root:has(input.theme-controller[value=light]:checked),[data-theme=light] {
+  :where(:root),
+  :root:has(input.theme-controller[value="light"]:checked),
+  [data-theme="light"] {
     color-scheme: light;
     --color-base-100: oklch(100% 0 0);
     --color-base-200: oklch(98% 0 0);
@@ -2493,7 +2769,8 @@ nav ul li a.active-link span {
   }
 }
 @layer base {
-  :root:has(input.theme-controller[value=light]:checked),[data-theme=light] {
+  :root:has(input.theme-controller[value="light"]:checked),
+  [data-theme="light"] {
     color-scheme: light;
     --color-base-100: oklch(100% 0 0);
     --color-base-200: oklch(98% 0 0);
@@ -2526,7 +2803,8 @@ nav ul li a.active-link span {
   }
 }
 @layer base {
-  :root:has(input.theme-controller[value=dark]:checked),[data-theme=dark] {
+  :root:has(input.theme-controller[value="dark"]:checked),
+  [data-theme="dark"] {
     color-scheme: dark;
     --color-base-100: oklch(25.33% 0.016 252.42);
     --color-base-200: oklch(23.26% 0.014 253.1);
@@ -2586,25 +2864,39 @@ nav ul li a.active-link span {
 @layer base {
   :root {
     background: var(--page-scroll-bg, var(--root-bg));
-    --page-scroll-bg-on: linear-gradient(var(--root-bg, #0000), var(--root-bg, #0000))
-    var(--root-bg, #0000);
+    --page-scroll-bg-on: linear-gradient(
+        var(--root-bg, #0000),
+        var(--root-bg, #0000)
+      )
+      var(--root-bg, #0000);
     @supports (color: color-mix(in lab, red, red)) {
-      --page-scroll-bg-on: linear-gradient(var(--root-bg, #0000), var(--root-bg, #0000))
-    color-mix(in srgb, var(--root-bg, #0000), oklch(0% 0 0) calc(var(--page-has-backdrop, 0) * 40%));
+      --page-scroll-bg-on: linear-gradient(
+          var(--root-bg, #0000),
+          var(--root-bg, #0000)
+        )
+        color-mix(
+          in srgb,
+          var(--root-bg, #0000),
+          oklch(0% 0 0) calc(var(--page-has-backdrop, 0) * 40%)
+        );
     }
     --page-scroll-transition-on: background-color 0.3s ease-out;
     transition: var(--page-scroll-transition);
     scrollbar-gutter: var(--page-scroll-gutter, unset);
-    scrollbar-gutter: if(style(--page-has-scroll: 1): var(--page-scroll-gutter, unset) ; else: unset);
+    scrollbar-gutter: if(
+      style(--page-has-scroll 1) var(--page-scroll-gutter, unset) else unset
+    );
   }
   @keyframes set-page-has-scroll {
-    0%, to {
+    0%,
+    to {
       --page-has-scroll: 1;
     }
   }
 }
 @layer base {
-  :root, [data-theme] {
+  :root,
+  [data-theme] {
     background: var(--page-scroll-bg, var(--root-bg));
     color: var(--color-base-content);
   }
@@ -2613,7 +2905,8 @@ nav ul li a.active-link span {
   }
 }
 @keyframes rating {
-  0%, 40% {
+  0%,
+  40% {
     scale: 1.1;
     filter: brightness(1.05) contrast(1.05);
   }
@@ -2642,10 +2935,12 @@ nav ul li a.active-link span {
   }
 }
 @keyframes rotator {
-  89.9999%, 100% {
+  89.9999%,
+  100% {
     --first-item-position: 0 0%;
   }
-  90%, 99.9999% {
+  90%,
+  99.9999% {
     --first-item-position: 0 calc(var(--items) * 100%);
   }
   100% {
@@ -2952,8 +3247,12 @@ nav ul li a.active-link span {
   inherits: false;
 }
 @layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    *, ::before, ::after, ::backdrop {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+    ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+    *,
+    ::before,
+    ::after,
+    ::backdrop {
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
