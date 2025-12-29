@@ -17,7 +17,7 @@ function updateActiveLink(target) {
 
     // 1. Logika untuk Halaman Utama (Scroll Spy / Hash)
     if (isHomePage) {
-      if (href === target) {
+      if (href === target || (target === "#beranda" && href === "#beranda")) {
         link.classList.add("active-link");
       }
     }
@@ -25,8 +25,9 @@ function updateActiveLink(target) {
     else {
       // Cek apakah href di menu (misal: 'page/publikasi.html') ada di dalam URL saat ini
       // Kita hilangkan '../' jika ada untuk perbandingan yang akurat
-      const cleanHref = href.replace("../", "");
-      if (currentPath.includes(cleanHref) && href !== "../") {
+      const pageName = currentPath.split("/").pop();
+
+      if (href.includes(pageName) && pageName !== "") {
         link.classList.add("active-link");
       }
     }

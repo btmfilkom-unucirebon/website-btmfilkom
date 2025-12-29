@@ -69,7 +69,6 @@ nav ul li a.active-link {
 
 nav ul li a.active-link span {
   width: 100% !important;
-  background-color: var(--color-acsent) !important;
 }
 
 /* --- 4. SECTION SPACING --- */
