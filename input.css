@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* --- 1. KONFIGURASI TEMA & VARIABEL --- */
+/* --- 1. KON\FIGURASI TEMA & VARIABEL --- */
 @theme {
   --color-nav: #252c37;
   --color-acsent: #00b3e2;
@@ -290,4 +290,3 @@ nav ul li a.active-link span {
     transition: transform 0.3s ease;
   }
 }
-/* publikasi */

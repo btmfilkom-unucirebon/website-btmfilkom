@@ -7,33 +7,51 @@ const heroContainer = document.getElementById("hero-container");
 
 // -- FUNGSI UTAMA: Update Status Aktif --
 function updateActiveLink(target) {
-  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  const currentPath = window.location.pathname;
 
   navLinks.forEach((link) => {
     const href = link.getAttribute("href");
 
-    if (href === target || href === currentPath) {
+    if (
+      (currentPath === "/" || currentPath.endsWith("index.html")) &&
+      href === "#beranda"
+    ) {
+      link.classList.add("active-link");
+    }
+    // Jika path URL mengandung nama file di href (untuk halaman selain index)
+    else if (
+      href !== "#beranda" &&
+      currentPath.includes(href.replace("../", ""))
+    ) {
+      link.classList.add("active-link");
+    }
+    // Kondisi klik manual/scroll spy
+    else if (href === target) {
       link.classList.add("active-link");
     } else {
-      if (href !== currentPath) {
-        link.classList.remove("active-link");
-      }
+      link.classList.remove("active-link");
     }
   });
 }
 
 // -- 1. INITIAL LOAD --
 window.addEventListener("load", () => {
-  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  const currentPath = window.location.pathname;
 
   // Set menu aktif sesuai halaman yang dibuka
-  if (currentPath === "index.html") {
+  if (
+    currentPath === "/" ||
+    currentPath.endsWith("index.html") ||
+    currentPath === ""
+  ) {
     updateActiveLink("#beranda");
   } else {
-    updateActiveLink(currentPath);
+    // Ambil nama file dari URL (misal: publikasi.html)
+    const pageName = currentPath.split("/").pop();
+    updateActiveLink(pageName);
   }
 
-  // Trigger reveal animations
+  // Trigger animations
   document.querySelectorAll(".reveal").forEach((el) => {
     el.classList.remove("opacity-0", "-translate-x-10", "translate-x-10");
     el.classList.add("opacity-100", "translate-x-0");
