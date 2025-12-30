@@ -225,3 +225,77 @@ function startAutoSlide(slider) {
     }, 600);
   }, 2500);
 }
+// publikasi
+    // 1. SWITCH TAB UTAMA
+    function switchTab(tabName) {
+        document.getElementById('tab-content-berita').style.display = (tabName === 'berita') ? 'block' : 'none';
+        document.getElementById('tab-content-dokumentasi').style.display = (tabName === 'dokumentasi') ? 'block' : 'none';
+        
+        const btnBerita = document.getElementById('tab-btn-berita');
+        const btnDok = document.getElementById('tab-btn-dokumentasi');
+        
+        if(tabName === 'berita') {
+            btnBerita.className = "w-1/2 md:w-auto px-8 py-2 rounded-md font-bold text-sm bg-nav text-white shadow-md transition-all";
+            btnDok.className = "w-1/2 md:w-auto px-8 py-2 rounded-md font-bold text-sm text-gray-500 hover:text-acsent transition-all";
+        } else {
+            btnDok.className = "w-1/2 md:w-auto px-8 py-2 rounded-md font-bold text-sm bg-nav text-white shadow-md transition-all";
+            btnBerita.className = "w-1/2 md:w-auto px-8 py-2 rounded-md font-bold text-sm text-gray-500 hover:text-acsent transition-all";
+        }
+    }
+
+    // 2. OPEN FULL VIEW
+    function openFullView(viewName) {
+        document.getElementById('main-panel').classList.add('hidden');
+        document.getElementById(`full-view-${viewName}`).classList.remove('hidden');
+        window.scrollTo(0,0);
+    }
+
+    // 3. CLOSE FULL VIEW
+    function closeFullView() {
+        document.querySelectorAll('[id^="full-view-"]').forEach(el => el.classList.add('hidden'));
+        document.getElementById('main-panel').classList.remove('hidden');
+    }
+
+    // 4. SEARCH FUNCTION
+    function searchCards(gridId, query) {
+        const grid = document.getElementById(gridId);
+        const cards = grid.querySelectorAll('.card-item');
+        const term = query.toLowerCase();
+
+        cards.forEach(card => {
+            const title = card.getAttribute('data-title').toLowerCase();
+            if(title.includes(term)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // 5. MODAL
+    function openModal(el) {
+        document.getElementById('modalTitle').innerText = el.getAttribute('data-title');
+        document.getElementById('modalDesc').innerText = el.getAttribute('data-desc') || 'Tidak ada deskripsi.';
+        const img = el.getAttribute('data-img');
+        
+        if(img) {
+            document.getElementById('modalImg').src = img;
+            document.getElementById('modalImgContainer').classList.remove('hidden');
+        } else {
+            document.getElementById('modalImgContainer').classList.add('hidden');
+        }
+        
+        const overlay = document.getElementById('modalOverlay');
+        const content = document.getElementById('modalContent');
+        overlay.classList.remove('hidden');
+        setTimeout(() => { overlay.classList.remove('opacity-0'); content.classList.remove('scale-95'); content.classList.add('scale-100'); }, 10);
+    }
+
+    function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        const content = document.getElementById('modalContent');
+        overlay.classList.add('opacity-0');
+        content.classList.remove('scale-100');
+        content.classList.add('scale-95');
+        setTimeout(() => { overlay.classList.add('hidden'); }, 300);
+    }
