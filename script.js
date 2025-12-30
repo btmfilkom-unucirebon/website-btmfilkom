@@ -8,13 +8,18 @@ const heroContainer = document.getElementById("hero-container");
 function updateActiveLink(target) {
   const currentPath = window.location.pathname;
   const currentPage =
-    currentPath.split("/").pop().replace("html", "") || "index";
+    currentPath.split("/").pop().replace("html", "").toLowerCase() || "index";
 
   navLinks.forEach((link) => {
     const href = link.getAttribute("href");
     link.classList.remove("active-link");
 
-    const linkPage = href.split("/").pop().replace("html", "").replace("#", "");
+    const linkPage = href
+      .split("/")
+      .pop()
+      .replace(".html", "")
+      .replace("#", "")
+      .toLowerCase();
 
     if (target.startsWith("#")) {
       if (href === target) {
