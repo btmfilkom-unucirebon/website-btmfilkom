@@ -9,11 +9,17 @@ const heroContainer = document.getElementById("hero-container");
 // -- FUNGSI UTAMA: Update Status Aktif --
 function updateActiveLink(target) {
   const currentPath = window.location.pathname;
-  const isHomePage = currentPath === "/" || currentPath.endsWith("index.html");
+  const isHomePage =
+    currentPath === "/" ||
+    currentPath === "/index" ||
+    currentPath.endsWith("index.html");
 
   navLinks.forEach((link) => {
-    const href = link.getAttribute("href");
+    let href = link.getAttribute("href");
     link.classList.remove("active-link"); // Reset semua dulu
+
+    const cleanHref = href.replace("../", "/").replace(".html", "");
+    const cleanCurrentPath = currentPath.replace(".html", "");
 
     // 1. Logika untuk Halaman Utama (Scroll Spy / Hash)
     if (isHomePage) {
@@ -25,9 +31,12 @@ function updateActiveLink(target) {
     else {
       // Cek apakah href di menu (misal: 'page/publikasi.html') ada di dalam URL saat ini
       // Kita hilangkan '../' jika ada untuk perbandingan yang akurat
-      const pageName = currentPath.split("/").pop();
 
-      if (href.includes(pageName) && pageName !== "") {
+      if (
+        cleanCurrentPath.includes(cleanHref) &&
+        cleanHref !== "/" &&
+        cleanHref !== ""
+      ) {
         link.classList.add("active-link");
       }
     }
