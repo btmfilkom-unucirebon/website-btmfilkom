@@ -7,8 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-100: oklch(93.6% 0.032 17.717);
-    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-orange-50: oklch(98% 0.016 73.684);
     --color-blue-50: oklch(97% 0.014 254.604);
     --color-gray-50: oklch(98.5% 0.002 247.839);
@@ -644,6 +642,19 @@
   }
   .z-50 {
     z-index: 50;
+  }
+  .hero {
+    @layer daisyui.l1.l2.l3 {
+      display: grid;
+      width: 100%;
+      place-items: center;
+      background-size: cover;
+      background-position: center;
+      & > * {
+        grid-column-start: 1;
+        grid-row-start: 1;
+      }
+    }
   }
   .container {
     width: 100%;
@@ -2155,10 +2166,8 @@ html, body {
   min-height: 100%;
   scroll-behavior: smooth;
   background-color: var(--color-bg-main);
-  -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-tap-highlight-color: transparent;
   scrollbar-width: none;
   text-rendering: optimizeLegibility;
   background-image: radial-gradient( circle at 0% 0%, rgba(0, 179, 226, 0.1) 0%, transparent 40% ), radial-gradient( circle at 100% 100%, rgba(37, 44, 55, 0.05) 0%, transparent 40% );
@@ -2270,11 +2279,7 @@ nav ul li a.active-link span {
   10% {
     opacity: 0.25;
   }
-  40% {
-    transform: rotate(45deg) translateY(120vh);
-    opacity: 0;
-  }
-  100% {
+  40%, 100% {
     transform: rotate(45deg) translateY(120vh);
     opacity: 0;
   }
@@ -2287,11 +2292,7 @@ nav ul li a.active-link span {
   10% {
     opacity: 0.25;
   }
-  40% {
-    transform: rotate(-45deg) translateY(120vh);
-    opacity: 0;
-  }
-  100% {
+  40%, 100% {
     transform: rotate(-45deg) translateY(120vh);
     opacity: 0;
   }
@@ -2321,14 +2322,11 @@ nav ul li a.active-link span {
   }
 }
 @keyframes slide {
-  0% {
+  0%, 100% {
     transform: translateX(-100%);
   }
   50% {
     transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
   }
 }
 .animate-slide {
@@ -2357,14 +2355,11 @@ nav ul li a.active-link span {
   transform: translate(0, 0) !important;
 }
 @keyframes floatingLogo {
-  0% {
+  0%, 100% {
     transform: translateY(0) rotate(0);
   }
   50% {
     transform: translateY(-5px) rotate(2deg);
-  }
-  100% {
-    transform: translateY(0) rotate(0);
   }
 }
 @media (max-width: 768px) {
@@ -2382,7 +2377,7 @@ nav ul li a.active-link span {
   display: none;
 }
 .no-scrollbar {
-  -ms-overflay-style: none;
+  -ms-overflow-style: none;
   scrollbar-width: none;
 }
 .detail-content {

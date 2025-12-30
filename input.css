@@ -1,14 +1,14 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* --- 1. KON\FIGURASI TEMA & VARIABEL --- */
+/* 1. Configuration & Custom Theme */
 @theme {
   --color-nav: #252c37;
   --color-acsent: #00b3e2;
   --color-bg-main: #f8fafc;
 }
 
-/* --- 2. GLOBAL STYLING & DYNAMIC BACKGROUND --- */
+/* 2. Global Styles & Background Effect */
 html,
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -18,14 +18,12 @@ body {
   min-height: 100%;
   scroll-behavior: smooth;
   background-color: var(--color-bg-main);
-  -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-tap-highlight-color: transparent;
   scrollbar-width: none;
   text-rendering: optimizeLegibility;
 
-  /* Efek Mesh Gradient di Background */
+  /* Background Mesh Gradient Animation */
   background-image: radial-gradient(
       circle at 0% 0%,
       rgba(0, 179, 226, 0.1) 0%,
@@ -50,7 +48,7 @@ body {
   }
 }
 
-/* --- 3. NAVBAR & NAVIGATION --- */
+/* 3. Navigation Bar Customization */
 nav {
   display: flex !important;
   visibility: visible !important;
@@ -61,7 +59,7 @@ nav {
   background-color: #252c37 !important;
 }
 
-/* State Link Aktif */
+/* Active Navigation Link State */
 nav ul li a.active-link {
   color: var(--color-acsent) !important;
   opacity: 1 !important;
@@ -71,18 +69,18 @@ nav ul li a.active-link span {
   width: 100% !important;
 }
 
-/* --- 4. SECTION SPACING --- */
+/* 4. Section Spacing Fixes */
 #beranda {
-  margin-top: 5rem; /* Menghindari konten tertutup navbar (h-20) */
+  margin-top: 5rem;
 }
 
 @media (min-width: 768px) {
   #beranda {
-    margin-top: 6rem; /* Navbar md (h-24) */
+    margin-top: 6rem;
   }
 }
 
-/* --- 5. ANIMASI METEOR (DATA RAIN) --- */
+/* 5. Meteor / Data Rain Animation */
 .meteor-container {
   position: absolute;
   top: 0;
@@ -102,7 +100,7 @@ nav ul li a.active-link span {
   opacity: 0;
 }
 
-/* Jalur Meteor Kanan */
+/* Meteor Pathing - Right Side */
 .m-right:nth-child(1) {
   left: 10%;
   animation: meteorKanan 6s infinite;
@@ -128,7 +126,7 @@ nav ul li a.active-link span {
   animation: meteorKanan 10s infinite 5s;
 }
 
-/* Jalur Meteor Kiri */
+/* Meteor Pathing - Left Side */
 .m-left:nth-child(7) {
   right: 5%;
   animation: meteorKiri 7s infinite 1s;
@@ -162,10 +160,7 @@ nav ul li a.active-link span {
   10% {
     opacity: 0.25;
   }
-  40% {
-    transform: rotate(45deg) translateY(120vh);
-    opacity: 0;
-  }
+  40%,
   100% {
     transform: rotate(45deg) translateY(120vh);
     opacity: 0;
@@ -180,17 +175,14 @@ nav ul li a.active-link span {
   10% {
     opacity: 0.25;
   }
-  40% {
-    transform: rotate(-45deg) translateY(120vh);
-    opacity: 0;
-  }
+  40%,
   100% {
     transform: rotate(-45deg) translateY(120vh);
     opacity: 0;
   }
 }
 
-/* --- 6. BUTTON & INTERAKSI --- */
+/* 6. Interaction Elements (Buttons & Cards) */
 .btn-scroll {
   display: inline-block;
   transition: all 0.3s ease;
@@ -217,28 +209,28 @@ nav ul li a.active-link span {
     box-shadow: 0 0 0 0 rgba(0, 179, 226, 0);
   }
 }
+
 @keyframes slide {
-  0% {
+  0%,
+  100% {
     transform: translateX(-100%);
   }
   50% {
     transform: translateX(100%);
   }
-  100% {
-    transform: translateX(-100%);
-  }
 }
+
 .animate-slide {
   animation: slide 3s infinite ease-in-out;
 }
 
-/* Android Click grayscale */
+/* Mobile Image Active State */
 .active-mobile img {
   filter: grayscale(0) !important;
   transform: scale(1.05) rotate(1deg) !important;
 }
 
-/* Animasi reveal saat scroll */
+/* Scroll Reveal Animations */
 .reveal-on-scroll {
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
@@ -248,30 +240,25 @@ nav ul li a.active-link span {
 .reveal-up {
   transform: translateY(40px);
 }
-
 .reveal-left {
   transform: translateX(-50px);
 }
-
 .reveal-right {
   transform: translateX(50px);
 }
-
 .reveal-active {
   opacity: 1 !important;
   transform: translate(0, 0) !important;
 }
 
-/* Animasi logo mengambang di mobile */
+/* Floating Effects */
 @keyframes floatingLogo {
-  0% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0);
   }
   50% {
     transform: translateY(-5px) rotate(2deg);
-  }
-  100% {
-    transform: translateY(0) rotate(0);
   }
 }
 
@@ -282,7 +269,6 @@ nav ul li a.active-link span {
   }
 }
 
-/* hover untuk desktop */
 @media (min-width: 767px) {
   .group:hover svg {
     transform: scale(1.1) rotate(3deg);
@@ -290,13 +276,13 @@ nav ul li a.active-link span {
   }
 }
 
-/* DEPARTEMEN */
+/* 7. Department Section Utilities */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
 .no-scrollbar {
-  -ms-overflay-style: none;
+  -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
@@ -309,10 +295,11 @@ nav ul li a.active-link span {
   color: var(--color-acsent);
 }
 
+/* Mobile Focus Mode for Active Card */
 @media (max-width: 767px) {
   .grid:has(.active) .dept-card:not(.active) {
     opacity: 0.4;
-    filter: blur(1px); /* Efek blur tipis agar fokus ke kartu aktif */
-    transform: scale(0.95); /* Sedikit mengecilkan kartu yang tidak aktif */
+    filter: blur(1px);
+    transform: scale(0.95);
   }
 }
