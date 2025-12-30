@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../output.css" rel="stylesheet" />
-    <title>Beranda - BTM FILKOM UNU CIREBON</title>
+    <title>Departemen - BTM FILKOM UNU CIREBON</title>
   </head>
 
   <body>
@@ -101,23 +101,979 @@
     <!-- END NAVBAR -->
 
     <!-- SECTION -->
+    <section class="pt-32 pb-20 bg-gray-50">
+      <div class="container mx-auto px-4 md:px-8 lg:px-12">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-nav mb-2">
+            Struktur <span class="text-acsent">Kabinet</span>
+          </h2>
+          <div class="w-24 h-1.5 bg-acsent mx-auto rounded-full mb-2"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto text-sm">
+            Mengenal lebih dekat unit-unit kerja yang menggerakkan roda
+            organisasi BTM FILKOM UNU Cirebon untuk mencapai visi dan misi
+            kabinet.
+          </p>
+        </div>
 
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start"
+        >
+          <!-- BPH -->
+          <div
+            class="dept-card bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-500 cursor-pointer group my-5 md:my-0"
+            onclick="toggleDept(this)"
+          >
+            <div class="px-8 pt-8 pb-6">
+              <div
+                class="w-14 h-14 bg-nav/5 rounded-2xl flex items-center justify-center mb-2 text-nav group-hover:bg-acsent group-hover:text-white transition-colors duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-nav">BPH</h3>
+              <p class="text-gray-500 text-sm">Badan Pengurus Harian</p>
+              <div
+                class="mt-2 flex items-center text-xs font-bold text-acsent uppercase tracking-widest"
+              >
+                <span>Detail</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-1 transition-transform duration-300 arrow-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out detail-content bg-gray-50/50"
+            >
+              <div class="px-8 pt-4 pb-4 border-t border-gray-100">
+                <div class="relative group/slider">
+                  <div class="flex overflow-x-hidden w-full member-slider">
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1750535135645-005e250ff210?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8"
+                          class="w-full h-full object-cover"
+                          alt="ketua"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Fajar Ardiansyah</p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Ketua Umum
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1740252117044-2af197eea287?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="wakil ketua"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Muhammad Cahaya Mentari
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Wakil Ketua Umum
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1740252117027-4275d3f84385?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Sekretaris"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Saskia Arrahma</p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Sekretaris Umum
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1739786995646-480d5cfd83dc?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="bendahara"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Bagus Imannudin</p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Bendahara Umum
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1739786996040-32bde1db0610?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="wakil bendahara"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Piona Rohmatul Ajijah
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Wakil Bendahara Umum
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-4 border-t border-gray-200/50">
+                  <h4 class="font-bold text-nav text-sm">Tugas Pokok:</h4>
+                  <p class="text-xs text-gray-600 leading-relaxed">
+                    Mengatur jalannya administrasi, keuangan, dan koordinasi
+                    internal seluruh departemen di BTM FILKOM.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- PERS DAN INFORMASI -->
+          <div
+            class="dept-card bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-500 cursor-pointer group my-5 md:my-0"
+            onclick="toggleDept(this)"
+          >
+            <div class="px-8 pt-8 pb-6">
+              <div
+                class="w-14 h-14 bg-nav/5 rounded-2xl flex items-center justify-center mb-2 text-nav group-hover:bg-acsent group-hover:text-white transition-colors duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l4 4v10a2 2 0 01-2 2zM7 8h5m-5 4h10m-10 4h10"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-nav">Departemen PI</h3>
+              <p class="text-gray-500 text-sm">Pers & Informasi</p>
+              <div
+                class="mt-2 flex items-center text-xs font-bold text-acsent uppercase tracking-widest"
+              >
+                <span>Detail</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-1 transition-transform duration-300 arrow-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out detail-content bg-gray-50/50"
+            >
+              <div class="px-8 pt-4 pb-4 border-t border-gray-100">
+                <div class="relative group/slider">
+                  <div class="flex overflow-x-hidden w-full member-slider">
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1750535135645-005e250ff210?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8"
+                          class="w-full h-full object-cover"
+                          alt="Koordinator Departemen"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Faqih Ahmad Fawaiz
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Koordinator Departemen PI
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1740252117044-2af197eea287?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Sekretaris Departemen"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Renaldi Gempar Caepudin
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Sekretaris Departemen PI
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1740252117027-4275d3f84385?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Abdul Madjid Haqie
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen pi
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1739786995646-480d5cfd83dc?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Rohmat Habibullah Mustofa
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen pi
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1739786996040-32bde1db0610?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Haekal Wibiyansyah
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen pi
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="py-2 border-t border-gray-200/50">
+                  <h4 class="font-bold text-nav text-sm">Tugas Pokok:</h4>
+                  <p class="text-xs text-gray-600 leading-relaxed">
+                    Mengelola informasi dan komunikasi internal serta eksternal
+                    organisasi, termasuk publikasi berita, dokumentasi acara,
+                    dan pengelolaan media sosial.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- PERLUASAN JARINGAN DAN KERJASAMA -->
+          <div
+            class="dept-card bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-500 cursor-pointer group my-5 md:my-0"
+            onclick="toggleDept(this)"
+          >
+            <div class="px-8 pt-8 pb-6">
+              <div
+                class="w-14 h-14 bg-nav/5 rounded-2xl flex items-center justify-center mb-2 text-nav group-hover:bg-acsent group-hover:text-white transition-colors duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9-9c1.657 0 3 1.343 3 3s-1.343 3-3 3m0-6c-1.657 0-3 1.343-3 3s1.343 3 3 3m-9-3h18"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-nav">Departemen PJK</h3>
+              <p class="text-gray-500 text-sm">
+                Perluasan Jaringan & Kerjasama
+              </p>
+              <div
+                class="mt-2 flex items-center text-xs font-bold text-acsent uppercase tracking-widest"
+              >
+                <span>Detail</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-1 transition-transform duration-300 arrow-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out detail-content bg-gray-50/50"
+            >
+              <div class="px-8 pt-4 pb-4 border-t border-gray-100">
+                <div class="relative group/slider">
+                  <div class="flex overflow-x-hidden w-full member-slider">
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1750535135645-005e250ff210?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8"
+                          class="w-full h-full object-cover"
+                          alt="Koordinator Departemen"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Sandi Idwan</p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Koordinator Departemen PJK
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1740252117044-2af197eea287?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Sekretaris Departemen"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Alip Agus Taptiana
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Sekretaris Departemen PJK
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1740252117027-4275d3f84385?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Jagat Nasution</p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen pjk
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1739786995646-480d5cfd83dc?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Frea Iollana</p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen pjk
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1739786996040-32bde1db0610?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Muhammad Agna Aqil
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen pjk
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="py-2 border-t border-gray-200/50">
+                  <h4 class="font-bold text-nav text-sm">Tugas Pokok:</h4>
+                  <p class="text-xs text-gray-600 leading-relaxed">
+                    Membangun dan memelihara hubungan dengan berbagai pihak
+                    eksternal, termasuk institusi, organisasi, dan mitra
+                    strategis untuk mendukung program kerja BTM FILKOM.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- HUMAS -->
+          <div
+            class="dept-card bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-500 cursor-pointer group my-5 md:my-0"
+            onclick="toggleDept(this)"
+          >
+            <div class="px-8 pt-8 pb-6">
+              <div
+                class="w-14 h-14 bg-nav/5 rounded-2xl flex items-center justify-center mb-2 text-nav group-hover:bg-acsent group-hover:text-white transition-colors duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-nav">Departemen Humas</h3>
+              <p class="text-gray-500 text-sm">Hubungan Masyarakat</p>
+              <div
+                class="mt-2 flex items-center text-xs font-bold text-acsent uppercase tracking-widest"
+              >
+                <span>Detail</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-1 transition-transform duration-300 arrow-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out detail-content bg-gray-50/50"
+            >
+              <div class="px-8 pt-4 pb-4 border-t border-gray-100">
+                <div class="relative group/slider">
+                  <div class="flex overflow-x-hidden w-full member-slider">
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1750535135645-005e250ff210?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8"
+                          class="w-full h-full object-cover"
+                          alt="Koordinator Departemen"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Sahrul Ramdhani</p>
+                      <p
+                        class="text-[13px] text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Koordinator Departemen Humas
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1740252117044-2af197eea287?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Sekretaris Departemen"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Aliyah Nurfazidah
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Sekretaris Departemen Humas
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1740252117027-4275d3f84385?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Hisyam Majdy Farid
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen Humas
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1739786995646-480d5cfd83dc?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Nanang Kurnia Tsani
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen Humas
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1739786996040-32bde1db0610?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Rio Fernando</p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen humas
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="py-2 border-t border-gray-200/50">
+                  <h4 class="font-bold text-nav text-sm">Tugas Pokok:</h4>
+                  <p class="text-xs text-gray-600 leading-relaxed">
+                    Membangun dan memelihara citra positif organisasi melalui
+                    komunikasi eksternal, termasuk hubungan dengan media,
+                    penanganan krisis, dan kegiatan promosi.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- PEMUDA DAN OLAHRAGA -->
+          <div
+            class="dept-card bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-500 cursor-pointer group my-5 md:my-0"
+            onclick="toggleDept(this)"
+          >
+            <div class="px-8 pt-8 pb-6">
+              <div
+                class="w-14 h-14 bg-nav/5 rounded-2xl flex items-center justify-center mb-2 text-nav group-hover:bg-acsent group-hover:text-white transition-colors duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-nav">Departemen PO</h3>
+              <p class="text-gray-500 text-sm">Pemuda dan Olahraga</p>
+              <div
+                class="mt-2 flex items-center text-xs font-bold text-acsent uppercase tracking-widest"
+              >
+                <span>Detail</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-1 transition-transform duration-300 arrow-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out detail-content bg-gray-50/50"
+            >
+              <div class="px-8 pt-4 pb-4 border-t border-gray-100">
+                <div class="relative group/slider">
+                  <div class="flex overflow-x-hidden w-full member-slider">
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1750535135645-005e250ff210?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8"
+                          class="w-full h-full object-cover"
+                          alt="Koordinator Departemen"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Ridho Fauzi Nata</p>
+                      <p
+                        class="text-[13px] text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Koordinator Departemen PO
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1740252117044-2af197eea287?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Sekretaris Departemen"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Rahima Maulidya</p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Sekretaris Departemen PO
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1740252117027-4275d3f84385?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Bima Prasetia</p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen PO
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1739786995646-480d5cfd83dc?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Dendi Permana</p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen PO
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1739786996040-32bde1db0610?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Muhammad Aggi Fadillah
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen PO
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="py-2 border-t border-gray-200/50">
+                  <h4 class="font-bold text-nav text-sm">Tugas Pokok:</h4>
+                  <p class="text-xs text-gray-600 leading-relaxed">
+                    Mengorganisir dan mengelola kegiatan kepemudaan dan olahraga
+                    untuk anggota BTM FILKOM, termasuk turnamen, pelatihan, dan
+                    acara sosial yang melibatkan mahasiswa.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- SENI DAN BUDAYA -->
+          <div
+            class="dept-card bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-500 cursor-pointer group my-5 md:my-0"
+            onclick="toggleDept(this)"
+          >
+            <div class="px-8 pt-8 pb-6">
+              <div
+                class="w-14 h-14 bg-nav/5 rounded-2xl flex items-center justify-center mb-2 text-nav group-hover:bg-acsent group-hover:text-white transition-colors duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-nav">Departemen SB</h3>
+              <p class="text-gray-500 text-sm">Seni dan Budaya</p>
+              <div
+                class="mt-2 flex items-center text-xs font-bold text-acsent uppercase tracking-widest"
+              >
+                <span>Detail</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-1 transition-transform duration-300 arrow-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out detail-content bg-gray-50/50"
+            >
+              <div class="px-8 pt-4 pb-4 border-t border-gray-100">
+                <div class="relative group/slider">
+                  <div class="flex overflow-x-hidden w-full member-slider">
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1750535135645-005e250ff210?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8"
+                          class="w-full h-full object-cover"
+                          alt="Koordinator Departemen"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Muhammad Khoirul</p>
+                      <p
+                        class="text-[13px] text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Koordinator Departemen SB
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1740252117044-2af197eea287?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Sekretaris Departemen"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Amalia Isfarayinni
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        Sekretaris Departemen SB
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1740252117027-4275d3f84385?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">
+                        Karina Syach Putri
+                      </p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen SB
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1739786995646-480d5cfd83dc?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="Anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Arya Pamungkas</p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen SB
+                      </p>
+                    </div>
+                    <div class="flex-none w-full snap-center text-center px-4">
+                      <div
+                        class="w-48 h-48 mx-auto rounded-3xl bg-white shadow-md overflow-hidden mb-4 border-4 border-white"
+                      >
+                        <img
+                          src="https://plus.unsplash.com/premium_photo-1739786996040-32bde1db0610?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          class="w-full h-full object-cover"
+                          alt="anggota"
+                        />
+                      </div>
+                      <p class="text-lg font-bold text-nav">Alip Ramadan</p>
+                      <p
+                        class="text-sm text-acsent font-medium uppercase tracking-wider"
+                      >
+                        anggota departemen SB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="py-2 border-t border-gray-200/50">
+                  <h4 class="font-bold text-nav text-sm">Tugas Pokok:</h4>
+                  <p class="text-xs text-gray-600 leading-relaxed">
+                    Mengembangkan dan melestarikan seni dan budaya melalui
+                    berbagai kegiatan kreatif, pertunjukan seni, dan pelatihan
+                    seni bagi anggota BTM FILKOM.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- END SECTION -->
 
     <!-- FOOTER -->
-    <footer class="relative bg-nav text-white pt-16 pb-12">
+    <footer class="relative bg-nav text-white pt-8 pb-12">
       <div
         class="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-acsent/50 to-transparent"
       ></div>
 
       <div class="container mx-auto px-4 md:px-8 lg:px-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-4 items-center">
           <div class="space-y-6 text-center md:text-left">
             <div
               class="flex flex-col md:flex-row items-center md:items-start gap-4"
             >
               <img
-                src="image/logo-kabinet.png"
+                src="../image/logo-kabinet.png"
                 class="w-20 h-20 md:w-24 md:h-24 object-contain"
                 alt="Logo Kabinet"
               />
@@ -143,14 +1099,15 @@
             </div>
           </div>
 
-          <div class="flex flex-col items-center md:items-end space-y-6">
+          <div class="flex flex-col items-center md:items-end">
             <div class="text-center md:text-right">
               <h4 class="text-lg font-semibold mb-4 text-white">
                 Hubungi Kami
               </h4>
               <div class="flex justify-center md:justify-end gap-4">
                 <a
-                  href="#"
+                  href="https://maps.app.goo.gl/rZxCsCkSqiipizze8"
+                  target="_blank"
                   class="p-3 bg-white/5 rounded-2xl hover:bg-acsent hover:text-nav transition-all duration-300"
                 >
                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -171,6 +1128,7 @@
                 </a>
                 <a
                   href="https://www.instagram.com/btmfilkom_unuc"
+                  target="_blank"
                   class="p-3 bg-white/5 rounded-2xl hover:bg-acsent hover:text-nav transition-all duration-300"
                 >
                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

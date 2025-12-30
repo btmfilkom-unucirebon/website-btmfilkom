@@ -283,9 +283,36 @@ nav ul li a.active-link span {
 }
 
 /* hover untuk desktop */
-@media (min-width: 769px) {
+@media (min-width: 767px) {
   .group:hover svg {
     transform: scale(1.1) rotate(3deg);
     transition: transform 0.3s ease;
+  }
+}
+
+/* DEPARTEMEN */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflay-style: none;
+  scrollbar-width: none;
+}
+
+.detail-content {
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dept-card.active .arrow-icon {
+  transform: rotate(180deg);
+  color: var(--color-acsent);
+}
+
+@media (max-width: 767px) {
+  .grid:has(.active) .dept-card:not(.active) {
+    opacity: 0.4;
+    filter: blur(1px); /* Efek blur tipis agar fokus ke kartu aktif */
+    transform: scale(0.95); /* Sedikit mengecilkan kartu yang tidak aktif */
   }
 }

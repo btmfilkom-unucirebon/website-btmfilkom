@@ -171,3 +171,72 @@ window.addEventListener("scroll", () => {
     });
   }
 });
+
+// DEPARTEMEN CARD HOVER EFFECT
+let autoSlideInterval;
+
+function toggleDept(card) {
+  const content = card.querySelector(".detail-content");
+  const allCards = document.querySelectorAll(".dept-card");
+  const slider = card.querySelector(".member-slider");
+
+  // 1. Cek apakah kartu ini sudah terbuka
+  const isActive = card.classList.contains("active");
+
+  // reset interval setiap kali klik
+  clearInterval(autoSlideInterval);
+
+  // 2. Tutup semua kartu lain
+  allCards.forEach((c) => {
+    c.classList.remove("active", "shadow-xl", "-translate-y-2");
+    c.querySelector(".detail-content").style.maxHeight = null;
+  });
+
+  // 3. Jika kartu yang diklik tadinya tertutup, sekarang buka
+  if (!isActive) {
+    card.classList.add("active", "shadow-xl", "-translate-y-2");
+    content.style.maxHeight = content.scrollHeight + "px";
+
+    // 4. Fitur Auto-Scroll: Berikan jeda sedikit agar animasi buka selesai
+    setTimeout(() => {
+      const elementPosition =
+        card.getBoundingClientRect().top + window.pageYOffset;
+      const isMobile = window.innerWidth < 768;
+
+      const offset = isMobile ? 100 : 120;
+
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      if (slider) startAutoSlide(slider);
+    }, 500);
+  }
+}
+
+function startAutoSlide(slider) {
+  autoSlideInterval = setInterval(() => {
+    // 1. Ambil item pertama
+    const firstItem = slider.querySelector(".flex-none");
+
+    // 2. Beri efek geser ke kanan
+    slider.scrollTo({
+      left: slider.clientWidth,
+      behavior: "smooth",
+    });
+
+    // 3. Tunggu animasi geser selesai (600ms), lalu pindahkan elemen
+    setTimeout(() => {
+      // Pindahkan foto pertama ke urutan paling terakhir secara instan
+      slider.appendChild(firstItem);
+      // Reset posisi scroll ke nol tanpa animasi (karena foto sudah pindah)
+      slider.style.scrollBehavior = "auto";
+      slider.scrollLeft = 0;
+      // Kembalikan ke mode smooth untuk geseran berikutnya
+      slider.style.scrollBehavior = "smooth";
+    }, 600); // 600ms adalah durasi rata-rata smooth scroll browser
+  }, 2500); // Geser setiap 2.5 detik
+}
