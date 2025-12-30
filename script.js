@@ -272,12 +272,14 @@ function startAutoSlide(slider) {
         });
     }
 
-    // 5. MODAL
+   // 5. MODAL
     function openModal(el) {
+        // Ambil data dari elemen yang diklik
         document.getElementById('modalTitle').innerText = el.getAttribute('data-title');
         document.getElementById('modalDesc').innerText = el.getAttribute('data-desc') || 'Tidak ada deskripsi.';
         const img = el.getAttribute('data-img');
         
+        // Tampilkan gambar jika ada
         if(img) {
             document.getElementById('modalImg').src = img;
             document.getElementById('modalImgContainer').classList.remove('hidden');
@@ -285,17 +287,36 @@ function startAutoSlide(slider) {
             document.getElementById('modalImgContainer').classList.add('hidden');
         }
         
+        // --- TAMBAHAN PENTING DI SINI ---
+        // Mematikan scroll pada halaman utama (body) agar tidak bisa digerakkan
+        document.body.style.overflow = 'hidden';
+        
+        // Tampilkan Modal
         const overlay = document.getElementById('modalOverlay');
         const content = document.getElementById('modalContent');
         overlay.classList.remove('hidden');
-        setTimeout(() => { overlay.classList.remove('opacity-0'); content.classList.remove('scale-95'); content.classList.add('scale-100'); }, 10);
+        
+        // Animasi masuk
+        setTimeout(() => { 
+            overlay.classList.remove('opacity-0'); 
+            content.classList.remove('scale-95'); 
+            content.classList.add('scale-100'); 
+        }, 10);
     }
 
     function closeModal() {
         const overlay = document.getElementById('modalOverlay');
         const content = document.getElementById('modalContent');
+        
+        // Animasi keluar
         overlay.classList.add('opacity-0');
         content.classList.remove('scale-100');
         content.classList.add('scale-95');
+        
+        // --- TAMBAHAN PENTING DI SINI ---
+        // Mengembalikan scroll pada halaman utama (body)
+        document.body.style.overflow = '';
+
+        // Sembunyikan elemen setelah animasi selesai
         setTimeout(() => { overlay.classList.add('hidden'); }, 300);
     }
