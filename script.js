@@ -324,15 +324,17 @@ function openModal(el) {
     document.getElementById("modalImgContainer").classList.add("hidden");
   }
 
-  // --- FITUR KUNCI SCROLL (Agar belakangnya tidak bergerak) ---
+  // --- FITUR KUNCI SCROLL ---
   document.documentElement.style.overflow = "hidden";
   document.body.style.overflow = "hidden";
 
-  // Tampilkan Modal dengan animasi
+  // Tampilkan Modal
   const overlay = document.getElementById("modalOverlay");
   const content = document.getElementById("modalContent");
 
+  // PERBAIKAN: Hapus 'hidden' dan gunakan 'flex' agar items-center & justify-center bekerja
   overlay.classList.remove("hidden");
+  overlay.classList.add("flex");
 
   // Sedikit delay agar transisi CSS berjalan halus
   setTimeout(() => {
@@ -358,5 +360,7 @@ function closeModal() {
   // Sembunyikan elemen setelah durasi animasi selesai (300ms)
   setTimeout(() => {
     overlay.classList.add("hidden");
+    // PERBAIKAN: Hapus 'flex' kembali agar tidak bentrok saat modal tertutup
+    overlay.classList.remove("flex");
   }, 300);
 }
