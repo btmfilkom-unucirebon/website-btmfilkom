@@ -69,6 +69,7 @@
     --radius-4xl: 2rem;
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --animate-spin: spin 1s linear infinite;
     --blur-sm: 8px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1617,8 +1618,47 @@
     --tw-scale-z: 100%;
     scale: var(--tw-scale-x) var(--tw-scale-y);
   }
+  .-rotate-10 {
+    rotate: calc(10deg * -1);
+  }
+  .-rotate-45 {
+    rotate: calc(45deg * -1);
+  }
   .rotate-3 {
     rotate: 3deg;
+  }
+  .rotate-20 {
+    rotate: 20deg;
+  }
+  .rotate-45 {
+    rotate: 45deg;
+  }
+  .rotate-50 {
+    rotate: 50deg;
+  }
+  .rotate-80 {
+    rotate: 80deg;
+  }
+  .rotate-100 {
+    rotate: 100deg;
+  }
+  .rotate-120 {
+    rotate: 120deg;
+  }
+  .rotate-150 {
+    rotate: 150deg;
+  }
+  .rotate-280 {
+    rotate: 280deg;
+  }
+  .rotate-300 {
+    rotate: 300deg;
+  }
+  .rotate-305 {
+    rotate: 305deg;
+  }
+  .rotate-310 {
+    rotate: 310deg;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -1638,6 +1678,9 @@
         animation: skeleton 1.8s ease-in-out infinite;
       }
     }
+  }
+  .animate-spin {
+    animation: var(--animate-spin);
   }
   .cursor-pointer {
     cursor: pointer;
@@ -2001,9 +2044,6 @@
   }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
-  }
-  .py-4 {
-    padding-block: calc(var(--spacing) * 4);
   }
   .py-8 {
     padding-block: calc(var(--spacing) * 8);
@@ -2594,24 +2634,9 @@
       margin-top: calc(var(--spacing) * 0);
     }
   }
-  .md\:mt-2 {
-    @media (width >= 48rem) {
-      margin-top: calc(var(--spacing) * 2);
-    }
-  }
-  .md\:mt-4 {
-    @media (width >= 48rem) {
-      margin-top: calc(var(--spacing) * 4);
-    }
-  }
   .md\:mt-5 {
     @media (width >= 48rem) {
       margin-top: calc(var(--spacing) * 5);
-    }
-  }
-  .md\:mt-6 {
-    @media (width >= 48rem) {
-      margin-top: calc(var(--spacing) * 6);
     }
   }
   .md\:mb-2 {
@@ -3763,6 +3788,11 @@ nav ul li a.active-link span {
 @property --tw-ease {
   syntax: "*";
   inherits: false;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
