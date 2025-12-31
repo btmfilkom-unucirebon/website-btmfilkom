@@ -225,98 +225,122 @@ function startAutoSlide(slider) {
     }, 600);
   }, 2500);
 }
-// publikasi
-    // 1. SWITCH TAB UTAMA
-    function switchTab(tabName) {
-        document.getElementById('tab-content-berita').style.display = (tabName === 'berita') ? 'block' : 'none';
-        document.getElementById('tab-content-dokumentasi').style.display = (tabName === 'dokumentasi') ? 'block' : 'none';
-        
-        const btnBerita = document.getElementById('tab-btn-berita');
-        const btnDok = document.getElementById('tab-btn-dokumentasi');
-        
-        if(tabName === 'berita') {
-            btnBerita.className = "w-1/2 md:w-auto px-8 py-2 rounded-md font-bold text-sm bg-nav text-white shadow-md transition-all";
-            btnDok.className = "w-1/2 md:w-auto px-8 py-2 rounded-md font-bold text-sm text-gray-500 hover:text-acsent transition-all";
+// ==========================================
+// LOGIKA KHUSUS HALAMAN PUBLIKASI
+// ==========================================
+
+// 1. FUNGSI SWITCH TAB (Berita vs Dokumentasi)
+function switchTab(tabName) {
+    // Sembunyikan/Tampilkan Konten
+    document.getElementById('tab-content-berita').style.display = (tabName === 'berita') ? 'block' : 'none';
+    document.getElementById('tab-content-dokumentasi').style.display = (tabName === 'dokumentasi') ? 'block' : 'none';
+    
+    const btnBerita = document.getElementById('tab-btn-berita');
+    const btnDok = document.getElementById('tab-btn-dokumentasi');
+    
+    // Class untuk tombol Aktif (dengan underline)
+    const activeClass = "w-1/2 md:w-auto px-8 py-2 rounded-md font-bold text-sm bg-nav text-white shadow-md transition-all underline underline-offset-4 decoration-2 decoration-acsent";
+    
+    // Class untuk tombol Tidak Aktif
+    const inactiveClass = "w-1/2 md:w-auto px-8 py-2 rounded-md font-bold text-sm text-gray-500 hover:text-acsent transition-all";
+    
+    // Terapkan Class
+    if(tabName === 'berita') {
+        btnBerita.className = activeClass;
+        btnDok.className = inactiveClass;
+    } else {
+        btnDok.className = activeClass;
+        btnBerita.className = inactiveClass;
+    }
+}
+
+// 2. FUNGSI BUKA TAMPILAN PENUH (Lihat Semua)
+function openFullView(viewName) {
+    // Sembunyikan panel utama
+    document.getElementById('main-panel').classList.add('hidden');
+    // Tampilkan panel full view yang dipilih
+    document.getElementById(`full-view-${viewName}`).classList.remove('hidden');
+    // Scroll ke paling atas agar user sadar halaman berubah
+    window.scrollTo(0,0);
+}
+
+// 3. FUNGSI TUTUP TAMPILAN PENUH (Kembali)
+function closeFullView() {
+    // Sembunyikan semua panel full view
+    document.querySelectorAll('[id^="full-view-"]').forEach(el => el.classList.add('hidden'));
+    // Tampilkan kembali panel utama
+    document.getElementById('main-panel').classList.remove('hidden');
+}
+
+// 4. FUNGSI PENCARIAN (Search)
+function searchCards(gridId, query) {
+    const grid = document.getElementById(gridId);
+    const cards = grid.querySelectorAll('.card-item');
+    const term = query.toLowerCase();
+
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        // Jika judul mengandung kata kunci, tampilkan (flex), jika tidak sembunyikan (none)
+        if(title.includes(term)) {
+            card.style.display = 'flex'; // Menggunakan flex agar layout kartu tetap terjaga
         } else {
-            btnDok.className = "w-1/2 md:w-auto px-8 py-2 rounded-md font-bold text-sm bg-nav text-white shadow-md transition-all";
-            btnBerita.className = "w-1/2 md:w-auto px-8 py-2 rounded-md font-bold text-sm text-gray-500 hover:text-acsent transition-all";
+            card.style.display = 'none';
         }
+    });
+}
+
+// 5. FUNGSI MODAL (Popup Detail)
+function openModal(el) {
+    // Ambil data dari atribut elemen yang diklik
+    const title = el.getAttribute('data-title');
+    const desc = el.getAttribute('data-desc') || 'Tidak ada deskripsi.';
+    const img = el.getAttribute('data-img');
+
+    // Isi konten modal
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalDesc').innerText = desc;
+    
+    // Cek apakah ada gambar
+    if(img) {
+        document.getElementById('modalImg').src = img;
+        document.getElementById('modalImgContainer').classList.remove('hidden');
+    } else {
+        document.getElementById('modalImgContainer').classList.add('hidden');
     }
+    
+    // --- FITUR KUNCI SCROLL (Agar belakangnya tidak bergerak) ---
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    
+    // Tampilkan Modal dengan animasi
+    const overlay = document.getElementById('modalOverlay');
+    const content = document.getElementById('modalContent');
+    
+    overlay.classList.remove('hidden');
+    
+    // Sedikit delay agar transisi CSS berjalan halus
+    setTimeout(() => { 
+        overlay.classList.remove('opacity-0'); 
+        content.classList.remove('scale-95'); 
+        content.classList.add('scale-100'); 
+    }, 10);
+}
 
-    // 2. OPEN FULL VIEW
-    function openFullView(viewName) {
-        document.getElementById('main-panel').classList.add('hidden');
-        document.getElementById(`full-view-${viewName}`).classList.remove('hidden');
-        window.scrollTo(0,0);
-    }
-
-    // 3. CLOSE FULL VIEW
-    function closeFullView() {
-        document.querySelectorAll('[id^="full-view-"]').forEach(el => el.classList.add('hidden'));
-        document.getElementById('main-panel').classList.remove('hidden');
-    }
-
-    // 4. SEARCH FUNCTION
-    function searchCards(gridId, query) {
-        const grid = document.getElementById(gridId);
-        const cards = grid.querySelectorAll('.card-item');
-        const term = query.toLowerCase();
-
-        cards.forEach(card => {
-            const title = card.getAttribute('data-title').toLowerCase();
-            if(title.includes(term)) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-
-   // 5. MODAL
-    function openModal(el) {
-        // Ambil data dari elemen yang diklik
-        document.getElementById('modalTitle').innerText = el.getAttribute('data-title');
-        document.getElementById('modalDesc').innerText = el.getAttribute('data-desc') || 'Tidak ada deskripsi.';
-        const img = el.getAttribute('data-img');
-        
-        // Tampilkan gambar jika ada
-        if(img) {
-            document.getElementById('modalImg').src = img;
-            document.getElementById('modalImgContainer').classList.remove('hidden');
-        } else {
-            document.getElementById('modalImgContainer').classList.add('hidden');
-        }
-        
-        // --- TAMBAHAN PENTING DI SINI ---
-        // Mematikan scroll pada halaman utama (body) agar tidak bisa digerakkan
-        document.body.style.overflow = 'hidden';
-        
-        // Tampilkan Modal
-        const overlay = document.getElementById('modalOverlay');
-        const content = document.getElementById('modalContent');
-        overlay.classList.remove('hidden');
-        
-        // Animasi masuk
-        setTimeout(() => { 
-            overlay.classList.remove('opacity-0'); 
-            content.classList.remove('scale-95'); 
-            content.classList.add('scale-100'); 
-        }, 10);
-    }
-
-    function closeModal() {
-        const overlay = document.getElementById('modalOverlay');
-        const content = document.getElementById('modalContent');
-        
-        // Animasi keluar
-        overlay.classList.add('opacity-0');
-        content.classList.remove('scale-100');
-        content.classList.add('scale-95');
-        
-        // --- TAMBAHAN PENTING DI SINI ---
-        // Mengembalikan scroll pada halaman utama (body)
-        document.body.style.overflow = '';
-
-        // Sembunyikan elemen setelah animasi selesai
-        setTimeout(() => { overlay.classList.add('hidden'); }, 300);
-    }
+function closeModal() {
+    const overlay = document.getElementById('modalOverlay');
+    const content = document.getElementById('modalContent');
+    
+    // Animasi menghilang
+    overlay.classList.add('opacity-0');
+    content.classList.remove('scale-100');
+    content.classList.add('scale-95');
+    
+    // --- KEMBALIKAN FUNGSI SCROLL ---
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    
+    // Sembunyikan elemen setelah durasi animasi selesai (300ms)
+    setTimeout(() => { 
+        overlay.classList.add('hidden'); 
+    }, 300);
+}
