@@ -236,131 +236,263 @@ function startAutoSlide(slider) {
     }, 600);
   }, 2500);
 }
-
-// LOGIKA KHUSUS HALAMAN PUBLIKASI
-
-// 1. FUNGSI SWITCH TAB (Berita vs Dokumentasi)
-function switchTab(tabName) {
-  // Sembunyikan/Tampilkan Konten
-  document.getElementById("tab-content-berita").style.display =
-    tabName === "berita" ? "block" : "none";
-  document.getElementById("tab-content-dokumentasi").style.display =
-    tabName === "dokumentasi" ? "block" : "none";
-
-  const btnBerita = document.getElementById("tab-btn-berita");
-  const btnDok = document.getElementById("tab-btn-dokumentasi");
-
-  // Class untuk tombol Aktif (dengan underline)
-  const activeClass =
-    "w-1/2 md:w-auto px-8 py-2 rounded-md font-bold text-sm bg-nav text-white shadow-md transition-all underline underline-offset-4 decoration-2 decoration-acsent";
-
-  // Class untuk tombol Tidak Aktif
-  const inactiveClass =
-    "w-1/2 md:w-auto px-8 py-2 rounded-md font-bold text-sm text-gray-500 hover:text-acsent transition-all";
-
-  // Terapkan Class
-  if (tabName === "berita") {
-    btnBerita.className = activeClass;
-    btnDok.className = inactiveClass;
-  } else {
-    btnDok.className = activeClass;
-    btnBerita.className = inactiveClass;
-  }
-}
-
-// 2. FUNGSI BUKA TAMPILAN PENUH (Lihat Semua)
-function openFullView(viewName) {
-  // Sembunyikan panel utama
-  document.getElementById("main-panel").classList.add("hidden");
-  // Tampilkan panel full view yang dipilih
-  document.getElementById(`full-view-${viewName}`).classList.remove("hidden");
-  // Scroll ke paling atas agar user sadar halaman berubah
-  window.scrollTo(0, 0);
-}
-
-// 3. FUNGSI TUTUP TAMPILAN PENUH (Kembali)
-function closeFullView() {
-  // Sembunyikan semua panel full view
-  document
-    .querySelectorAll('[id^="full-view-"]')
-    .forEach((el) => el.classList.add("hidden"));
-  // Tampilkan kembali panel utama
-  document.getElementById("main-panel").classList.remove("hidden");
-}
-
-// 4. FUNGSI PENCARIAN (Search)
-function searchCards(gridId, query) {
-  const grid = document.getElementById(gridId);
-  const cards = grid.querySelectorAll(".card-item");
-  const term = query.toLowerCase();
-
-  cards.forEach((card) => {
-    const title = card.getAttribute("data-title").toLowerCase();
-    // Jika judul mengandung kata kunci, tampilkan (flex), jika tidak sembunyikan (none)
-    if (title.includes(term)) {
-      card.style.display = "flex"; // Menggunakan flex agar layout kartu tetap terjaga
-    } else {
-      card.style.display = "none";
+// publikasi
+ 
+const dbBerita = [
+    {
+        id: 1,
+        judul: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        tanggal: "30 Des 2025",
+        kategori: "terbaru",
+        deskripsi: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+        fullContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        img: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=600&auto=format&fit=crop",
+        isBaru: true
+    },
+    {
+        id: 2,
+        judul: "Sed ut perspiciatis unde omnis iste natus error",
+        tanggal: "29 Des 2025",
+        kategori: "terbaru",
+        deskripsi: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.",
+        fullContent: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+        img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop",
+        isBaru: false
+    },
+    {
+        id: 3,
+        judul: "At vero eos et accusamus et iusto odio dignissimos",
+        tanggal: "28 Des 2025",
+        kategori: "terbaru",
+        deskripsi: "Ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias.",
+        fullContent: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.",
+        img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600&auto=format&fit=crop",
+        isBaru: false
+    },
+    {
+        id: 4,
+        judul: "Excepteur sint occaecat cupidatat non proident",
+        tanggal: "20 Des 2024",
+        kategori: "arsip",
+        deskripsi: "Sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        fullContent: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
+        img: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=600&auto=format&fit=crop",
+        isBaru: false
+    },
+    {
+        id: 5,
+        judul: "Duis aute irure dolor in reprehenderit",
+        tanggal: "15 Des 2024",
+        kategori: "arsip",
+        deskripsi: "Voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        fullContent: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+        img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop",
+        isBaru: false
     }
-  });
+];
+
+const dbDokumentasi = [
+    { id: 101, judul: "Dokumentasi 1", tanggal: "Jan 2025", img: "../image/img-home.webp", deskripsi: "Lorem ipsum dolor sit amet." },
+    { id: 102, judul: "Dokumentasi 2", tanggal: "Jan 2025", img: "../image/img-subHome.webp", deskripsi: "Consectetur adipiscing elit." },
+    { id: 103, judul: "Dokumentasi 3", tanggal: "Jan 2025", img: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=600&auto=format&fit=crop", deskripsi: "Sed do eiusmod tempor." }
+];
+
+
+// 2. RENDER KARTU (PAKAI TEMPLATE)
+
+function renderCards(data, containerId, type = 'berita') {
+    const container = document.getElementById(containerId);
+    if(!container) return;
+    container.innerHTML = ''; 
+
+    const templateBerita = document.getElementById('template-card-berita');
+    const templateDok = document.getElementById('template-card-dok');
+
+    data.forEach(item => {
+        let clone;
+        if (type === 'berita') {
+            clone = templateBerita.content.cloneNode(true);
+            const cardItem = clone.querySelector('.card-item');
+            cardItem.onclick = () => openDetail(item.id, type);
+            
+            clone.querySelector('.card-img').src = item.img;
+            clone.querySelector('.card-img').alt = item.judul;
+            clone.querySelector('.card-title').textContent = item.judul;
+            clone.querySelector('.card-desc').textContent = item.deskripsi;
+            clone.querySelector('.card-date-top').textContent = item.tanggal;
+            clone.querySelector('.card-date-bottom').textContent = item.tanggal;
+
+            if (item.isBaru) {
+                clone.querySelector('.card-badge').classList.remove('hidden');
+            }
+        } else {
+            clone = templateDok.content.cloneNode(true);
+            const cardItem = clone.querySelector('.card-item');
+            cardItem.onclick = () => openDetail(item.id, type);
+            clone.querySelector('.card-img').src = item.img;
+            clone.querySelector('.card-title').textContent = item.judul;
+            clone.querySelector('.card-date').textContent = item.tanggal;
+        }
+        container.appendChild(clone);
+    });
 }
 
-// 5. FUNGSI MODAL (Popup Detail)
-function openModal(el) {
-  // Ambil data dari atribut elemen yang diklik
-  const title = el.getAttribute("data-title");
-  const desc = el.getAttribute("data-desc") || "Tidak ada deskripsi.";
-  const img = el.getAttribute("data-img");
+// Inisialisasi
+document.addEventListener("DOMContentLoaded", () => {
+    const beritaTerbaru = dbBerita.filter(item => item.kategori === 'terbaru');
+    const beritaArsip = dbBerita.filter(item => item.kategori === 'arsip');
 
-  // Isi konten modal
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalDesc").innerText = desc;
+    renderCards(beritaTerbaru, 'container-berita-terbaru', 'berita');
+    renderCards(beritaArsip, 'container-arsip', 'berita');
+    renderCards(dbDokumentasi, 'container-dokumentasi', 'dokumentasi');
+});
 
-  // Cek apakah ada gambar
-  if (img) {
-    document.getElementById("modalImg").src = img;
-    document.getElementById("modalImgContainer").classList.remove("hidden");
-  } else {
-    document.getElementById("modalImgContainer").classList.add("hidden");
-  }
+// 3. NAVIGATION SYSTEM
 
-  // --- FITUR KUNCI SCROLL ---
-  document.documentElement.style.overflow = "hidden";
-  document.body.style.overflow = "hidden";
+function openDetail(id, type) {
+    let item;
+    if (type === 'berita') item = dbBerita.find(x => x.id === id);
+    else item = dbDokumentasi.find(x => x.id === id);
 
-  // Tampilkan Modal
-  const overlay = document.getElementById("modalOverlay");
-  const content = document.getElementById("modalContent");
+    if (!item) return;
 
-  // PERBAIKAN: Hapus 'hidden' dan gunakan 'flex' agar items-center & justify-center bekerja
-  overlay.classList.remove("hidden");
-  overlay.classList.add("flex");
+    // Isi Konten
+    document.getElementById('detail-title').innerText = item.judul;
+    document.getElementById('detail-date').innerText = item.tanggal;
+    document.getElementById('detail-img').src = item.img;
+    document.getElementById('detail-desc').innerText = item.fullContent || item.deskripsi;
+    
+    // KONTROL TOMBOL
+    const btnDownload = document.getElementById('btn-download');
+    
+    if (type === 'berita') {
+        btnDownload.classList.add('hidden');
+        btnDownload.classList.remove('flex');
+    } else {
+        btnDownload.classList.remove('hidden');
+        btnDownload.classList.add('flex');
+    }
 
-  // Sedikit delay agar transisi CSS berjalan halus
-  setTimeout(() => {
-    overlay.classList.remove("opacity-0");
-    content.classList.remove("scale-95");
-    content.classList.add("scale-100");
-  }, 10);
+    // Switch View
+    document.getElementById('main-panel').classList.add('hidden');
+    document.getElementById('main-panel').classList.remove('flex');
+    document.getElementById('full-list-panel').classList.add('hidden');
+    document.getElementById('full-list-panel').classList.remove('flex');
+
+    document.getElementById('detail-view-panel').classList.remove('hidden');
+    document.getElementById('detail-view-panel').classList.add('flex');
+    
+    window.scrollTo(0,0);
 }
 
-function closeModal() {
-  const overlay = document.getElementById("modalOverlay");
-  const content = document.getElementById("modalContent");
+function closeDetailView() {
+    document.getElementById('detail-view-panel').classList.add('hidden');
+    document.getElementById('detail-view-panel').classList.remove('flex');
+    
+    document.getElementById('main-panel').classList.remove('hidden');
+    document.getElementById('main-panel').classList.add('flex');
+    window.scrollTo(0,0);
+}
 
-  // Animasi menghilang
-  overlay.classList.add("opacity-0");
-  content.classList.remove("scale-100");
-  content.classList.add("scale-95");
+// 4. ACTION FUNCTIONS (Share & Download & Toast)
 
-  // --- KEMBALIKAN FUNGSI SCROLL ---
-  document.documentElement.style.overflow = "";
-  document.body.style.overflow = "";
+function shareSocial(platform) {
+    const url = window.location.href; 
+    const text = "Cek info terbaru dari BTM FILKOM!";
 
-  // Sembunyikan elemen setelah durasi animasi selesai (300ms)
-  setTimeout(() => {
-    overlay.classList.add("hidden");
-    // PERBAIKAN: Hapus 'flex' kembali agar tidak bentrok saat modal tertutup
-    overlay.classList.remove("flex");
-  }, 300);
+    if (platform === 'wa') {
+        window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + url)}`, '_blank');
+    } 
+    else if (platform === 'copy') {
+        // Salin ke Clipboard lalu Tampilkan Toast
+        navigator.clipboard.writeText(url).then(() => {
+            showToast();
+        });
+    }
+}
+
+function showToast() {
+    const toast = document.getElementById('toast-notification');
+    
+    // Munculkan
+    toast.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+    toast.classList.add('opacity-100', 'scale-100');
+    
+    // Hilangkan setelah 2 detik
+    setTimeout(() => {
+        toast.classList.remove('opacity-100', 'scale-100');
+        toast.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+    }, 2000);
+}
+
+function downloadImage() {
+    const imgSrc = document.getElementById('detail-img').src;
+    const link = document.createElement('a');
+    link.href = imgSrc;
+    link.download = 'Dokumentasi-BTM.jpg';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// 5. HELPER FUNCTIONS
+
+let currentListData = [];
+let currentListType = '';
+
+function openFullListView(type) {
+    const titleEl = document.getElementById('full-list-title');
+    
+    if(type === 'terbaru') {
+        titleEl.innerText = "Semua Berita Terbaru";
+        currentListData = dbBerita; 
+        currentListType = 'berita';
+    } else if (type === 'selesai') {
+        titleEl.innerText = "Arsip Berita Selesai";
+        currentListData = dbBerita.filter(i => i.kategori === 'arsip');
+        currentListType = 'berita';
+    } else {
+        titleEl.innerText = "Semua Dokumentasi";
+        currentListData = dbDokumentasi;
+        currentListType = 'dokumentasi';
+    }
+
+    renderCards(currentListData, 'container-full-list', currentListType);
+    document.getElementById('main-panel').classList.add('hidden');
+    document.getElementById('main-panel').classList.remove('flex');
+    document.getElementById('full-list-panel').classList.remove('hidden');
+    document.getElementById('full-list-panel').classList.add('flex');
+    window.scrollTo(0,0);
+}
+
+function closeFullListView() {
+    document.getElementById('full-list-panel').classList.add('hidden');
+    document.getElementById('full-list-panel').classList.remove('flex');
+    document.getElementById('main-panel').classList.remove('hidden');
+    document.getElementById('main-panel').classList.add('flex');
+    window.scrollTo(0,0);
+}
+
+function searchGlobal(query) {
+    const term = query.toLowerCase();
+    const filtered = currentListData.filter(item => item.judul.toLowerCase().includes(term));
+    renderCards(filtered, 'container-full-list', currentListType);
+}
+
+function switchTab(tabName) {
+    document.getElementById('tab-content-berita').style.display = (tabName === 'berita') ? 'block' : 'none';
+    document.getElementById('tab-content-dokumentasi').style.display = (tabName === 'dokumentasi') ? 'block' : 'none';
+    
+    const btnBerita = document.getElementById('tab-btn-berita');
+    const btnDok = document.getElementById('tab-btn-dokumentasi');
+    const activeClass = "w-1/2 md:w-auto px-6 md:px-8 py-2 rounded-md font-bold text-xs md:text-sm bg-nav text-white shadow-md transition-all underline underline-offset-4 decoration-2 decoration-acsent";
+    const inactiveClass = "w-1/2 md:w-auto px-6 md:px-8 py-2 rounded-md font-bold text-xs md:text-sm text-gray-500 hover:text-acsent transition-all";
+    
+    if(tabName === 'berita') {
+        btnBerita.className = activeClass;
+        btnDok.className = inactiveClass;
+    } else {
+        btnDok.className = activeClass;
+        btnBerita.className = inactiveClass;
+    }
 }
