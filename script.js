@@ -7,28 +7,37 @@ const heroContainer = document.getElementById("hero-container");
 
 function updateActiveLink(target) {
   const currentPath = window.location.pathname;
-  const currentPage =
-    currentPath.split("/").pop().replace("html", "").toLowerCase() || "index";
+  let currentPage = currentPath
+    .split("/")
+    .pop()
+    .replace(/\.html$/, "")
+    .toLowerCase();
+
+  if (currentPage === "" || currentPage === "index") {
+    currentPage = "index";
+  }
 
   navLinks.forEach((link) => {
     const href = link.getAttribute("href");
     link.classList.remove("active-link");
 
-    const linkPage = href
-      .split("/")
-      .pop()
-      .replace(".html", "")
-      .replace("#", "")
-      .toLowerCase();
+    const linkPage =
+      href
+        .split("/")
+        .pop()
+        .replace(/\.html$/, "")
+        .replace("#", "")
+        .toLowerCase() || "index";
 
     if (target.startsWith("#")) {
       if (href === target) {
         link.classList.add("active-link");
       }
     } else {
-      if (currentPage === linkPage && linkPage !== "") {
+      if (currentPage === linkPage) {
         link.classList.add("active-link");
-      } else if (
+      }
+      if (
         currentPage === "index" &&
         (linkPage === "index" || href === "#beranda")
       ) {
@@ -101,9 +110,11 @@ menuBtn.addEventListener("click", () => {
 
 // Logic Scroll Spy untuk index
 window.addEventListener("scroll", () => {
-  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  const path = window.location.pathname;
+  const isIndex =
+    path === "/" || path.endsWith("index.html") || path.endsWith("index");
 
-  if (currentPath === "index.html") {
+  if (isIndex) {
     let currentSection = "";
     const sections = document.querySelectorAll("section");
     const scrollPosition = window.pageYOffset + navbar.offsetHeight + 100;
