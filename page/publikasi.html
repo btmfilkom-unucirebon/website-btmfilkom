@@ -133,7 +133,7 @@
               class="flex justify-between items-end mb-6 px-1 border-l-4 border-blue-600 pl-4 shrink-0"
             >
               <h2 class="text-lg md:text-2xl font-black text-gray-800">
-                Berita Terbaru
+                Berita Kegiatan
               </h2>
               <button
                 onclick="openFullListView('terbaru')"
@@ -175,7 +175,7 @@
               class="flex justify-between items-end mb-6 px-1 border-l-4 border-acsent pl-4"
             >
               <h2 class="text-lg md:text-2xl font-black text-gray-800">
-                Galeri Dokumentasi
+                Dokumentasi
               </h2>
               <button
                 onclick="openFullListView('dokumentasi')"
@@ -273,8 +273,11 @@
             class="w-full h-auto rounded-lg shadow-sm"
             alt="Dokumentasi Kegiatan"
           />
-          <figcaption class="mt-2 text-center text-xs text-gray-400 italic">
-            Dokumentasi Pelantikan BTM FILKOM UNU Cirebon
+          <figcaption
+            id="detail-caption"
+            class="mt-2 text-center text-xs text-gray-400 italic"
+          >
+            Dokumentasi:
           </figcaption>
         </figure>
 
@@ -451,9 +454,28 @@
             ></h3>
             <p class="card-date text-xs text-black mb-2"></p>
             <span
-              class="text-[10px] text-black font-bold uppercase tracking-wide"
-              >LIHAT FOTO</span
-            >
+              class="text-[10px] text-black font-bold uppercase tracking-wide flex"
+              >LIHAT FOTO
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-link ml-1"
+              >
+                <!-- SVG path data for a link icon -->
+                <path
+                  d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                ></path>
+                <path
+                  d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                ></path>
+              </svg>
+            </span>
           </div>
         </div>
       </template>

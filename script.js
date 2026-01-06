@@ -252,7 +252,8 @@ const dbBerita = [
     Dengan mengusung tema "Membangun Kepemimpinan Progresif, Menguatkan Semangat Kebangsaan", pelantikan ini menjadi langkah awal yang penuh harapan dalam mewujudkan peran aktif dan berintegritas mahasiswa di lingkungan kampus. 
 
     Selamat dan sukses untuk semua pengurus baru yang telah resmi dilantik!`,
-    img: "../image/img-SubHome.webp",
+    img: "../image/img-subHome.webp",
+    caption: "Pelantikan Pengurus BTM FILKOM",
     isBaru: true,
   },
   {
@@ -261,8 +262,26 @@ const dbBerita = [
     tanggal: "2025-06-26",
     kategori: "terbaru",
     deskripsi:
-      "Bersama, kita tingkatkan sportivitas dan solidaritas antar mahasiswa",
-    img: "../image/img-home.webp",
+      "Sinergi tanpa batas! BTM FILKOM dan BTM UNIV beradu sportivitas dalam laga persahabatan demi mempererat koordinasi antar lembaga.",
+    fullContent: `Cirebon, BTM FILKOM – Menjaga hubungan harmonis antar lembaga tidak selalu harus di dalam ruang rapat. BTM FILKOM bersama BTM Universitas (UNIV) sukses menggelar laga persahabatan "Fun Futsal Match" (26/06) sebagai bentuk penguatan relasi dan komunikasi antar pengurus.
+
+    Kegiatan yang berlangsung di lapangan RIZKY FUTSAL ini menjadi ajang "refreshing" sekaligus ruang diskusi santai di luar agenda formal organisasi. Pertandingan berjalan seru dengan aksi saling balas gol, namun suasana keakraban tetap menjadi prioritas utama.`,
+    img: "../image/a2.jpg",
+    isBaru: true,
+  },
+  {
+    id: 3,
+    judul: "Upgrading & Raker",
+    tanggal: "2025-07-30",
+    kategori: "terbaru",
+    deskripsi:
+      "Langkah awal menuju perubahan sinergi, kolaborasi, dan komitmen dalam upgrading dan rapat kerja BTM FILKOM",
+    fullContent: `Cirebon, BTM FILKOM - Menandai dimulainya perjalanan baru kepengurusan, BTM FILKOM menyelenggarakan kegiatan Upgrading dan Rapat Kerja (30/07). Dengan mengusung tema "Dari visi menjadi aksi: Membangun organisasi unggul dan visioner", agenda ini di fokuskan pada penguatan internal organisasi dan perumusan program kerja satu periode ke depan.
+    
+    Sesi Upgrading diisi dengan pembekalan soft skills dan manajemen organisasi untuk membekali pengurus agar lebih progresif dan siap menghadapi tantangan. Setelah itu, dilanjutkan dengan pemaparan program kerja dari setiap departemen yang penuh dengan inovasi.
+    
+    Langkah awal ini menjadi pondasi penting bagi BTM FILKOM untuk terus berkomitmen dalam melayani dan memberikan dampak positif bagi civitas dan lingkungan kampus.`,
+    img: "../image/a3.jpg",
     isBaru: true,
   },
 ];
@@ -270,24 +289,12 @@ const dbBerita = [
 const dbDokumentasi = [
   {
     id: 101,
-    judul: "Dokumentasi 1",
-    tanggal: "Jan 2025",
-    img: "../image/img-home.webp",
+    judul: "Dokumentasi Penyambutan MABA FILKOM",
+    tanggal: "2025-11-08",
+    img: "../image/d1.jpg",
     deskripsi: "Lorem ipsum dolor sit amet.",
-  },
-  {
-    id: 102,
-    judul: "Dokumentasi 2",
-    tanggal: "Jan 2025",
-    img: "../image/img-subHome.webp",
-    deskripsi: "Consectetur adipiscing elit.",
-  },
-  {
-    id: 103,
-    judul: "Dokumentasi 3",
-    tanggal: "Jan 2025",
-    img: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=600&auto=format&fit=crop",
-    deskripsi: "Sed do eiusmod tempor.",
+    linkDrive:
+      "https://drive.google.com/drive/folders/1QrqfXuS_E-djJUpJ3mWvS7xqI1RAQ0DI?usp=drive_link",
   },
 ];
 
@@ -360,9 +367,13 @@ document.addEventListener("DOMContentLoaded", () => {
     return selisih > BATAS_ARSIP;
   });
 
-  renderCards(beritaTerbaru, "container-berita-terbaru", "berita");
-  renderCards(beritaArsip, "container-arsip", "berita");
-  renderCards(dbDokumentasi, "container-dokumentasi", "dokumentasi");
+  renderCards(beritaTerbaru.slice(0, 3), "container-berita-terbaru", "berita");
+  renderCards(beritaArsip.slice(0, 3), "container-arsip", "berita");
+  renderCards(
+    dbDokumentasi.slice(0, 3),
+    "container-dokumentasi",
+    "dokumentasi"
+  );
 });
 
 // 3. NAVIGATION SYSTEM
@@ -374,12 +385,31 @@ function openDetail(id, type) {
 
   if (!item) return;
 
+  if (type === "dokumentasi" && item.linkDrive) {
+    window.open(item.linkDrive, "_blank");
+    return; // Keluar dari fungsi agar tidak membuka panel detail
+  }
+
   // Isi Konten
   document.getElementById("detail-title").innerText = item.judul;
   document.getElementById("detail-date").innerText = item.tanggal;
   document.getElementById("detail-img").src = item.img;
+
+  const captionText = item.caption || item.judul;
+  document.querySelector(
+    "figcaption"
+  ).innerText = `Dokumentasi: ${captionText}`;
+
+  // 4. DESKRIPSI/ISI BERITA (Teks panjang di bawah)
+  // Pastikan yang masuk ke sini adalah fullContent
   document.getElementById("detail-desc").innerText =
     item.fullContent || item.deskripsi;
+  item.fullContent || item.deskripsi || item.caption;
+
+  const captionEl = document.querySelector("#detail-view-panel figcaption");
+  if (captionEl) {
+    captionEl.innerText = `Dokumentasi: ${item.caption || item.judul}`;
+  }
 
   // KONTROL TOMBOL
   const btnDownload = document.getElementById("btn-download");
@@ -446,16 +476,6 @@ function showToast() {
   }, 2000);
 }
 
-// function downloadImage() {
-//   const imgSrc = document.getElementById("detail-img").src;
-//   const link = document.createElement("a");
-//   link.href = imgSrc;
-//   link.download = "Dokumentasi-BTM.jpg";
-//   document.body.appendChild(link);
-//   link.click();
-//   document.body.removeChild(link);
-// }
-
 // 5. HELPER FUNCTIONS
 
 let currentListData = [];
@@ -466,11 +486,16 @@ function openFullListView(type) {
 
   if (type === "terbaru") {
     titleEl.innerText = "Semua Berita Terbaru";
-    currentListData = dbBerita;
+    currentListData = dbBerita; // Ambil semua data tanpa filter kategori yang salah
     currentListType = "berita";
   } else if (type === "selesai") {
     titleEl.innerText = "Arsip Berita Selesai";
-    currentListData = dbBerita.filter((i) => i.kategori === "arsip");
+    // Jika kamu ingin benar-benar filter yang sudah lama (lewat 15 hari):
+    const hariIni = new Date();
+    currentListData = dbBerita.filter((i) => {
+      const selisih = (hariIni - new Date(i.tanggal)) / (1000 * 3600 * 24);
+      return selisih > 15;
+    });
     currentListType = "berita";
   } else {
     titleEl.innerText = "Semua Dokumentasi";
@@ -478,7 +503,10 @@ function openFullListView(type) {
     currentListType = "dokumentasi";
   }
 
+  // Render SEMUA data (tanpa slice) karena ini tampilan "Lihat Semua"
   renderCards(currentListData, "container-full-list", currentListType);
+
+  // Logic panel switch tetap sama
   document.getElementById("main-panel").classList.add("hidden");
   document.getElementById("main-panel").classList.remove("flex");
   document.getElementById("full-list-panel").classList.remove("hidden");
