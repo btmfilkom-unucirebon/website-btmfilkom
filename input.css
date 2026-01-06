@@ -6,12 +6,15 @@
   --color-nav: #252c37;
   --color-acsent: #00b3e2;
   --color-bg-main: #f8fafc;
+
+  --font-poppins: "Poppins", sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
 
 /* 2. Global Styles & Background Effect */
 html,
 body {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: var(--font-poppins);
   margin: 0;
   padding: 0;
   overflow-x: hidden;
