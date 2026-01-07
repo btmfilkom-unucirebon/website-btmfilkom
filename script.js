@@ -254,7 +254,7 @@ const dbBerita = [
     Selamat dan sukses untuk semua pengurus baru yang telah resmi dilantik!`,
     img: "../image/img-subHome.webp",
     caption: "Pelantikan Pengurus BTM FILKOM",
-    isBaru: true,
+    isBaru: false,
   },
   {
     id: 2,
@@ -267,7 +267,7 @@ const dbBerita = [
 
     Kegiatan yang berlangsung di lapangan RIZKY FUTSAL ini menjadi ajang "refreshing" sekaligus ruang diskusi santai di luar agenda formal organisasi. Pertandingan berjalan seru dengan aksi saling balas gol, namun suasana keakraban tetap menjadi prioritas utama.`,
     img: "../image/a2.jpg",
-    isBaru: true,
+    isBaru: false,
   },
   {
     id: 3,
@@ -282,6 +282,24 @@ const dbBerita = [
     
     Langkah awal ini menjadi pondasi penting bagi BTM FILKOM untuk terus berkomitmen dalam melayani dan memberikan dampak positif bagi civitas dan lingkungan kampus.`,
     img: "../image/a3.jpg",
+    isBaru: false,
+  },
+  {
+    id: 4,
+    judul: "Growth Class",
+    tanggal: "2025-11-15",
+    kategori: "terbaru",
+    deskripsi:
+      "Program rutin bulanan FILKOM untuk mengasah skill teknis. Kali ini kita bedah syntax dasar HTML sebagai fondasi web programming.",
+    fullContent: `Cirebon, BTM FILKOM – Departemen Humas kembali menghadirkan Growth Class "Ngoding Bareng" sebagai bagian dari komitmen BTM FILKOM dalam memfasilitasi pengembangan skill mahasiswa setiap bulannya.
+    
+    Kegiatan rutin bulanan ini dirancang sebagai wadah belajar intensif namun santai. Pada edisi 15 November 2025, fokus utama adalah pengenalan syntax HTML. Melalui program ini, mahasiswa diajak untuk mulai membangun fondasi yang kuat di dunia pemrograman web tanpa rasa takut menghadapi baris kode.
+    
+    Belajar bersama terbukti membuat materi yang sulit menjadi lebih mudah dipahami. Suasana kelas yang hidup dengan praktik langsung (hands-on) memastikan setiap peserta pulang dengan pemahaman baru. Sebagai program berkelanjutan, Growth Class akan terus hadir setiap bulan dengan materi-materi IT yang relevan dan dibutuhkan oleh mahasiswa saat ini.
+    
+    Jangan lewatkan Growth Class edisi bulan depan! Terus pantau informasinya hanya di kanal resmi BTM FILKOM.`,
+
+    img: "../image/growth.jpeg",
     isBaru: true,
   },
 ];
@@ -289,9 +307,27 @@ const dbBerita = [
 const dbDokumentasi = [
   {
     id: 101,
+    judul: "Dokumentasi Upgrading & Raker BTM FILKOM",
+    tanggal: "2025-06-30",
+    img: "../image/d1.png",
+    deskripsi: "Lorem ipsum dolor sit amet.",
+    linkDrive:
+      "https://drive.google.com/drive/folders/1VmZoAhKndeRqJmjfDaqvIKKKbalWphSt?usp=drive_link",
+  },
+  {
+    id: 102,
+    judul: "Dokumentasi Studi Banding",
+    tanggal: "2025-07-02",
+    img: "../image/d2.png",
+    deskripsi: "Lorem ipsum dolor sit amet.",
+    linkDrive:
+      "https://drive.google.com/drive/folders/1XDFI4rLVRKNRZnPfB_7e4pbZcPM9GvkH?usp=drive_link",
+  },
+  {
+    id: 103,
     judul: "Dokumentasi Penyambutan MABA FILKOM",
     tanggal: "2025-11-08",
-    img: "../image/d1.jpg",
+    img: "../image/d3.png",
     deskripsi: "Lorem ipsum dolor sit amet.",
     linkDrive:
       "https://drive.google.com/drive/folders/1QrqfXuS_E-djJUpJ3mWvS7xqI1RAQ0DI?usp=drive_link",
@@ -359,7 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const beritaTerbaru = dbBerita.filter((item) => {
     const selisih = (hariIni - new Date(item.tanggal)) / (1000 * 3600 * 24);
-    return selisih <= BATAS_ARSIP;
+    return selisih <= BATAS_ARSIP || item.isBaru === true;
   });
 
   const beritaArsip = dbBerita.filter((item) => {
