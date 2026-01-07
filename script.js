@@ -205,7 +205,7 @@ function toggleDept(card) {
       const elementPosition =
         card.getBoundingClientRect().top + window.pageYOffset;
       const isMobile = window.innerWidth < 768;
-      const offset = isMobile ? 100 : 120;
+      const offset = isMobile ? 130 : 120;
       const offsetPosition = elementPosition - offset;
 
       window.scrollTo({
