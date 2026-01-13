@@ -587,3 +587,11 @@ function switchTab(tabName) {
     btnBerita.className = inactiveClass;
   }
 }
+
+// FOOTER UPDATE YEAR
+const yearElement = document.getElementById("copyright-year");
+const currentYear = new Date().getFullYear();
+
+if (yearElement) {
+  yearElement.innerText = currentYear("©");
+}
