@@ -1,11 +1,18 @@
 {
   "dependencies": {
     "@tailwindcss/cli": "^4.1.18",
+    "@tailwindcss/vite": "^4.1.18",
     "daisyui": "^5.5.14",
+    "dotenv": "^17.2.3",
+    "firebase": "^12.8.0",
     "tailwindcss": "^4.1.18"
   },
   "scripts": {
-    "dev": "npx @tailwindcss/cli -i input.css -o output.css --watch",
-    "build": "npx tailwindcss -i input.css -o output.css --minify"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1"
   }
 }
