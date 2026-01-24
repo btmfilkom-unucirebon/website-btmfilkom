@@ -163,6 +163,12 @@ function startAutoSlide(slider) {
   if(autoSlideInterval) clearInterval(autoSlideInterval);
 
   autoSlideInterval = setInterval(() => {
+    // Pastikan slider ada di DOM sebelum mengakses propertinya
+    if (!document.contains(slider)) {
+        clearInterval(autoSlideInterval);
+        return;
+    }
+
     const firstItem = slider.querySelector(".flex-none");
     if(!firstItem) return;
 
@@ -180,7 +186,7 @@ function startAutoSlide(slider) {
   }, 2500);
 }
 
-// Kita pasang ke window agar bisa dipanggil via onclick di HTML
+// Kita pasang ke window agar bisa dipanggil via onclick di HTML (PENTING untuk modul)
 window.toggleDept = function(card) {
   const content = card.querySelector(".detail-content");
   const allCards = document.querySelectorAll(".dept-card");
