@@ -389,9 +389,11 @@
             class="relative w-full h-56 md:h-64 shrink-0 bg-gray-100 overflow-hidden"
           >
             <img
-              class="card-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              class="card-img w-full h-full object-cover transform-gpu will-change-transform group-hover:scale-105 transition-transform duration-500"
               src=""
               alt=""
+              loading="lazy"
+              decoding="async"
             />
             <div
               class="card-badge absolute top-4 left-4 bg-black/80 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded-full shadow z-10 hidden uppercase tracking-wider"
@@ -431,8 +433,10 @@
         >
           <div class="relative w-full h-56 md:h-64 overflow-hidden">
             <img
-              class="card-img w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              class="card-img w-full h-full object-cover transform-gpu will-change-transform group-hover:scale-110 transition-transform duration-700"
               src=""
+              loading="lazy"
+              decoding="async"
             />
             <div
               class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300"
