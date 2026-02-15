@@ -5,7 +5,7 @@ import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { showToast } from '../script.js';
 
 // --- CONFIGURATION ---
-const BATAS_HARI_BARU = 30; // Berita dianggap "Terbaru" jika umurnya <= 30 hari
+const BATAS_HARI_BARU = 7; // Berita dianggap "Terbaru" jika umurnya <= 7 hari
 
 // --- STATE DATA ---
 let allBerita = [];
