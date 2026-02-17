@@ -281,5 +281,5 @@ function toggleViews(viewName) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetchData();
+    fetchData();
 });
